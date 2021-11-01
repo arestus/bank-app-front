@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.userlist-wrap{
+  padding: 20px;
+}
+
+.mat-header-cell {
+  background: rgb(206, 197, 197);
+  font-size: 20px;
+}
+
+td, th {
+  width: 25%;
+}
+
