@@ -1,10 +1,16 @@
 <div class="userlist-wrap">
   <h1>Static table</h1>
 
-  <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Find" #input />
-  </mat-form-field>
+  <div class="search-div">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Find" #input />
+    </mat-form-field>
+
+    <button mat-raised-button (click)="onCreate()">
+      <mat-icon>add</mat-icon>Create
+    </button>
+  </div>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>

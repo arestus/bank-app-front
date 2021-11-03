@@ -1,7 +1,10 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { CreateUserComponent } from '../create-user/create-user.component';
+
 
 
 export interface UserData {
@@ -29,16 +32,16 @@ const NAMES: string[] = [
 
 
 
-export class UserlistComponent implements AfterViewInit  {
+export class UserlistComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     // Create 100 users
-    const users = Array.from({length: 110}, (_, k) => createNewUser(k + 1));
+    const users = Array.from({ length: 110 }, (_, k) => createNewUser(k + 1));
 
     this.dataSource = new MatTableDataSource(users);
   }
@@ -56,6 +59,16 @@ export class UserlistComponent implements AfterViewInit  {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(CreateUserComponent, dialogConfig);
+  }
+
+
 }
 
 function createNewUser(id: number): UserData {
@@ -69,3 +82,4 @@ function createNewUser(id: number): UserData {
     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
   };
 }
+

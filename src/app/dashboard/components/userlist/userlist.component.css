@@ -19,3 +19,19 @@ td, th {
   width: 25%;
 }
 
+.search-div{
+  display: flex;
+}
+
+.mat-raised-button{
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.btn-dialog-close{
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}

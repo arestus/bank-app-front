@@ -1,32 +1,109 @@
-<p>create-user works!</p>
-<form class="example-form">
-  <table class="example-full-width" cellspacing="0">
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Full name</mat-label>
-          <input matInput />
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput />
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
 
-  <p>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Address</mat-label>
-      <textarea matInput placeholder="Adress"></textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Address 2</mat-label>
-      <textarea matInput placeholder="Adress2"></textarea>
-    </mat-form-field>
-  </p>
 
+<div class="new-user-container ">
+  <h1>New User</h1>
+  <button class="btn-dialog-close" mat-stroked-button color="accent" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</div>
   
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+  <mat-grid-list cols="2" rowHeight="300px" class="normal-form">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="$key" />
+
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" />
+          <mat-error *ngIf="checkError('fullName', 'required')">Full name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+         
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="checkError('password', 'required')">Password is required</mat-error>
+          
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Account Number</mat-label>
+          <input matInput formControlName="accNo" />
+          <mat-error *ngIf="checkError('accNo', 'required')">Account number is required</mat-error>
+          <mat-error *ngIf="checkError('accNo', 'minlength')">Please type correct account number(16 digits)</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+          />
+          <mat-error *ngIf="checkError('email', 'required')">Email is required</mat-error>
+          <mat-error *ngIf="checkError('email', 'email')">Please type correct  email</mat-error>
+         
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Birth Day</mat-label>
+          <input formControlName="dob" matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input formControlName="phoneNumber" matInput />
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+            <mat-radio-button value="3">Other</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="button-row">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+           
+          >
+            Submit
+          </button>
+          <button type="button" mat-raised-button color="warn" (click)="onClear()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </form>
