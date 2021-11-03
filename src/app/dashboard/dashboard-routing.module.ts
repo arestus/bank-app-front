@@ -6,6 +6,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'payment',
         component: PaymentComponent
+      },
+      {
+        path: 'create-transaction',
+        component: CreateTransactionComponent
       }
     ]
   },
