@@ -1,5 +1,5 @@
     <p>{{currentAmount}}</p>
-    <form [formGroup] = "transferForm" #formDirective="ngForm"  (ngSubmit)="onFormSubmit(formDirective)">
+    <form [formGroup] = "transferForm" #formDirective="ngForm"  (ngSubmit)="onFormSubmit(transferForm, formDirective)">
                 <mat-form-field appearance="fill">
                     <mat-label>From account</mat-label>
                     <mat-select formControlName="to">
@@ -11,7 +11,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>To account</mat-label>
-                    <input formControlName="from" type="number" matInput>
+                    <input formControlName="from" type="number" required matInput>
                     <mat-error *ngIf="this.transferForm.controls.to.hasError('required')" [ngClass]="'error'">Enter the recipient's account number</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="fill" floatLabel="always">
@@ -28,5 +28,5 @@
                     <mat-error *ngIf="this.transferForm.controls.desc.hasError('required')" [ngClass]="'error'">Enter the description</mat-error>
                 </mat-form-field>
         <button mat-raised-button color="basic" (click)="reset()">Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Create</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!transferForm.valid">Create</button>
     </form>

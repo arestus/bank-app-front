@@ -31,7 +31,7 @@ export class TransferComponent implements OnInit {
 
   constructor() { }
 
-  onFormSubmit(formDirective: FormGroupDirective){
+  onFormSubmit(formData: any, formDirective: FormGroupDirective){
     console.log('To:' + this.transferForm.get('to')!.value);
     console.log('From:' + this.transferForm.get('from')!.value);
     console.log('Amount:' + this.transferForm.get('amount')!.value);

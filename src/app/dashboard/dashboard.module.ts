@@ -25,6 +25,8 @@ import { TransferComponent } from './components/create-transaction/transfer/tran
 import { MatButtonModule } from '@angular/material/button';
 import { ErrorStateMatcher, MatOption, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { DepositComponent } from './components/create-transaction/deposit/deposit.component';
+import { WithdrawComponent } from './components/create-transaction/withdraw/withdraw.component';
 
 
 
@@ -37,6 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     CreateUserComponent,
     CreateTransactionComponent,
     TransferComponent,
+    DepositComponent,
+    WithdrawComponent,
   ],
   imports: [
     CommonModule,
