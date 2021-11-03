@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-user',
@@ -13,8 +13,8 @@ export class CreateUserComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    // public dialogRef: MatDialogRef<CreateUserComponent>,
-    // @Inject (MAT_DIALOG_DATA) public data: Object,
+    public dialogRef: MatDialogRef<CreateUserComponent>,
+    @Inject (MAT_DIALOG_DATA) public data: Object,
     ) {
     this.form = new FormGroup({
       $key: new FormControl(null),
@@ -39,8 +39,8 @@ export class CreateUserComponent implements OnInit {
   }
 
   onClose() {
-    // this.form.reset();
-    // this.dialogRef.close();
+    this.form.reset();
+    this.dialogRef.close();
 
   }
 
@@ -49,15 +49,15 @@ export class CreateUserComponent implements OnInit {
   };
 
   onSubmit() {
-    const invalid = [];
-        const controls = this.form.controls;
-        for (const name in controls) {
-            if (controls[name].invalid) {
-                invalid.push(name);
-            }
-        }
-        console.log(invalid) ;
-    //console.log(this.form);
+    // const invalid = [];
+    //     const controls = this.form.controls;
+    //     for (const name in controls) {
+    //         if (controls[name].invalid) {
+    //             invalid.push(name);
+    //         }
+    //     }
+    //     console.log(invalid) ;
+    console.log(this.form);
     this.onClose();
   }
 

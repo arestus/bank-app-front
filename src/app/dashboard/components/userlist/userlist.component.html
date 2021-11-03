@@ -1,13 +1,14 @@
 <div class="userlist-wrap">
-  <h1>Static table</h1>
+  <h1>Customers</h1>
 
   <div class="search-div">
     <mat-form-field appearance="standard">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Find" #input />
+      <mat-label>Type to find</mat-label>
+
+      <input matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
 
-    <button mat-raised-button (click)="onCreate()">
+    <button color="primary" mat-raised-button (click)="onCreate()">
       <mat-icon>add</mat-icon>Create
     </button>
   </div>

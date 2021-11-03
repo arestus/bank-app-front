@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CreateUserComponent } from '../create-user/create-user.component';
+import { UserlistService } from 'src/app/services/userlist.service';
 
 
 
@@ -34,16 +35,24 @@ const NAMES: string[] = [
 
 export class UserlistComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  users = [];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    // Create 100 users
+  constructor(public dialog: MatDialog,
+    private userlistService: UserlistService) {
+      this.userlistService.getUsers().then(res =>{
+        this.users == res.data
+      })
+      
     const users = Array.from({ length: 110 }, (_, k) => createNewUser(k + 1));
 
     this.dataSource = new MatTableDataSource(users);
+    this.userlistService.getUsers().then(res =>{
+      this.users == res.data
+    })
   }
 
   ngAfterViewInit() {

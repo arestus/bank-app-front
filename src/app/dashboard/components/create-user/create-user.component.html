@@ -40,7 +40,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Account Number</mat-label>
-          <input matInput formControlName="accNo" />
+          <input type="number" matInput formControlName="accNo" />
           <mat-error *ngIf="checkError('accNo', 'required')">Account number is required</mat-error>
           <mat-error *ngIf="checkError('accNo', 'minlength')">Please type correct account number(16 digits)</mat-error>
 
@@ -79,7 +79,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Phone Number</mat-label>
-          <input formControlName="phoneNumber" matInput />
+          <input type="number" formControlName="phoneNumber" matInput />
           <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
 
@@ -95,7 +95,7 @@
             mat-raised-button
             color="primary"
             type="submit"
-           
+            [disabled] = form.invalid
           >
             Submit
           </button>
