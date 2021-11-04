@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+form {
+  width: 280px;
+}
+form mat-form-field {
+  display: block;
+}
+form button {
+  width: 100%;
+  margin-top: 1rem;
+}
+.right-align {
+  text-align: right;
+}
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.right-align {
+  -moz-appearance: textfield;
+}

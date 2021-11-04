@@ -29,6 +29,12 @@
         <mat-icon mat-list-icon class="">history</mat-icon>
         <span *ngIf="isExpanded">History</span>
       </mat-list-item>
+
+      <mat-list-item [routerLink]="'create-transaction'">
+        <mat-icon mat-list-icon class="">create</mat-icon>
+        <span *ngIf="isExpanded">Transaction</span>
+      </mat-list-item>
+      
     </mat-nav-list>
   </mat-sidenav>
   <div class="content">
@@ -38,3 +44,4 @@
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
+<!-- /* some comment */ -->
