@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
+import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { HistoryComponent } from './components/history/history.component';
-import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,7 +17,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CreateUserComponent } from './components/create-user/create-user.component';
@@ -27,6 +27,10 @@ import { ErrorStateMatcher, MatOption, ShowOnDirtyErrorStateMatcher } from '@ang
 import { MatSelectModule } from '@angular/material/select';
 import { DepositComponent } from './components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './components/create-transaction/withdraw/withdraw.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -58,11 +62,17 @@ import { WithdrawComponent } from './components/create-transaction/withdraw/with
     ReactiveFormsModule,
     MatTabsModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   exports:[
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
     
   ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],

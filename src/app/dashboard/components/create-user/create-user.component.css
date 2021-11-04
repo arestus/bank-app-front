@@ -1,0 +1,51 @@
+.controles-container{
+  width: 100%;
+  padding: 5%;    
+}
+
+.controles-container > * {
+  width: 100%;
+  }
+
+  .add-bottom-padding{
+      padding-bottom: 10px;
+      
+  }
+
+ 
+  .ng-tns-c76-2{
+    border: none;
+  }
+
+  .ng-tns-c76-4{
+    margin-right: 10px;
+  }
+
+  
+
+  form.normal-form{
+    margin: 10px;
+    border:1px solid black;
+}
+
+.mat-radio-button{
+  margin-left: 10px;
+}
+
+.button-row button{
+  margin: 5px;
+}
+
+.new-user-container{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin-bottom: 30px;
+  padding:0 5%; 
+}
+
+
+
+
+
+

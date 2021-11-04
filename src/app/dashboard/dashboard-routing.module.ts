@@ -18,10 +18,10 @@ const routes: Routes = [
         path: 'user-list',
         component: UserlistComponent
       },
-      {
-        path: 'create-user',
-        component: CreateUserComponent
-      },
+      // {
+      //   path: 'create-user',
+      //   component: CreateUserComponent
+      // },
       {
         path: 'history',
         component: HistoryComponent
