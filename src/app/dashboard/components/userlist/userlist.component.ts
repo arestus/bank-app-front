@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CreateUserComponent } from '../create-user/create-user.component';
 import { UserlistService } from 'src/app/services/userlist.service';
+import { UserModel } from 'src/app/models/user-model';
 
 
 
@@ -14,14 +15,6 @@ export interface UserData {
   progress: string;
   fruit: string;
 }
-
-const FRUITS: string[] = [
-  'blueberry', 'lychee', 'kiwi', 'mango', 'peach', 'lime', 'pomegranate', 'pineapple'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
 
 
 
@@ -33,31 +26,35 @@ const NAMES: string[] = [
 
 
 
-export class UserlistComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  users = [];
-  dataSource: MatTableDataSource<UserData>;
+export class UserlistComponent implements OnInit {
+  displayedColumns: string[] = [ 'fullname', 'gender', 'email', 'dob', 'address', 'phoneNumber'];
+  users!: UserModel[];
+  dataSource!: MatTableDataSource<UserModel>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog,
-    private userlistService: UserlistService) {
-      this.userlistService.getUsers().then(res =>{
-        this.users == res.data
-      })
-      
-    const users = Array.from({ length: 110 }, (_, k) => createNewUser(k + 1));
+    public service: UserlistService) {
 
-    this.dataSource = new MatTableDataSource(users);
-    this.userlistService.getUsers().then(res =>{
-      this.users == res.data
-    })
+
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngOnInit(): void {
+    this.service.getAll().then(res => {
+      this.users = res.data;
+
+      this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+
+  }
+
+
+
+  refreshList() {
+    this.service.getAll().then(res => { console.log(res.data, "resdata"), this.users = res.data; });
   }
 
   applyFilter(event: Event) {
@@ -78,17 +75,5 @@ export class UserlistComponent implements AfterViewInit {
   }
 
 
-}
-
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
-  };
 }
 

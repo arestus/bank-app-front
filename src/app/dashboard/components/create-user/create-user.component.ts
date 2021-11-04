@@ -17,7 +17,7 @@ export class CreateUserComponent implements OnInit {
     @Inject (MAT_DIALOG_DATA) public data: Object,
     ) {
     this.form = new FormGroup({
-      $key: new FormControl(null),
+      Id: new FormControl(null),
       fullName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       gender: new FormControl('1'),
