@@ -11,6 +11,7 @@ export class WithdrawComponent implements OnInit {
   withdrawForm = new FormGroup({
     from: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
+    desc: new FormControl('', Validators.required)
   });
 
   get from(): any {
@@ -18,6 +19,9 @@ export class WithdrawComponent implements OnInit {
   }
   get amount(): any {
     return this.withdrawForm.get('amount');
+  }
+  get desc(): any {
+    return this.withdrawForm.get('desc');
   }
 
   constructor() { }
@@ -28,6 +32,7 @@ export class WithdrawComponent implements OnInit {
   onFormSubmit(formDirective: FormGroupDirective){
     console.log('From:' + this.withdrawForm.get('to')!.value);
     console.log('Amount:' + this.withdrawForm.get('amount')!.value);
+    console.log('Description:' + this.withdrawForm.get('desc')!.value);
     formDirective.resetForm();
     this.reset();
   }

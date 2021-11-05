@@ -23,6 +23,13 @@
         <span matPrefix>$&nbsp;</span>
     </mat-form-field>
 
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="desc" type="text" matInput></textarea>
+        <mat-error *ngIf="this.withdrawForm.controls.desc.hasError('required')" [ngClass]="'error'">Enter the description
+        </mat-error>
+    </mat-form-field>
+
     <button mat-raised-button color="basic" (click)="reset()">Cancel</button>
     <button mat-raised-button color="primary" type="submit" [disabled]="!withdrawForm.valid">Create</button>
 

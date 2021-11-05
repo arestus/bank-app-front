@@ -11,6 +11,7 @@ export class DepositComponent implements OnInit {
   depositForm = new FormGroup({
     to: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
+    desc: new FormControl('', Validators.required)
   });
 
   get to(): any {
@@ -18,6 +19,9 @@ export class DepositComponent implements OnInit {
   }
   get amount(): any {
     return this.depositForm.get('amount');
+  }
+  get desc(): any {
+    return this.depositForm.get('desc');
   }
 
   constructor() { }
@@ -28,6 +32,7 @@ export class DepositComponent implements OnInit {
   onFormSubmit(formDirective: FormGroupDirective){
     console.log('To:' + this.depositForm.get('to')!.value);
     console.log('Amount:' + this.depositForm.get('amount')!.value);
+    console.log('Description:' + this.depositForm.get('desc')!.value);
     formDirective.resetForm();
     this.reset();
   }
