@@ -1,13 +1,11 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
- import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 import { HistoryComponent } from './components/history/history.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
-
 
 const routes: Routes = [
   {
@@ -16,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: 'user-list',
-        component: UserlistComponent
+        component: UserlistComponent,
       },
       // {
       //   path: 'create-user',
@@ -24,23 +22,22 @@ const routes: Routes = [
       // },
       {
         path: 'history',
-        component: HistoryComponent
+        component: HistoryComponent,
       },
       {
         path: 'payment',
-        component: PaymentComponent
+        component: PaymentComponent,
       },
       {
         path: 'create-transaction',
-        component: CreateTransactionComponent
-      }
-    ]
+        component: CreateTransactionComponent,
+      },
+    ],
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}
