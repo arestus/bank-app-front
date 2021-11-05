@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { UserlistService } from './services/userlist.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -16,6 +17,7 @@ import { UserlistService } from './services/userlist.service';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
