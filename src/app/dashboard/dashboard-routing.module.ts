@@ -6,6 +6,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
+import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'create-transaction',
         component: CreateTransactionComponent,
+      },
+      {
+        path: 'confirmation',
+        component: ConfirmationPageComponent,
       },
     ],
   },
