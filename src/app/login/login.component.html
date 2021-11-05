@@ -1,1 +1,25 @@
 <p>login works!</p>
+<h2>Create Transaction</h2>
+<div class="example-container ">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" class="example-right-align" placeholder="0">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+  </div>
+  <div class="container">
+    <mat-tab-group mat-stretch-tabs class="tabs-list">
+        <mat-tab label="Transfer"><app-transfer></app-transfer></mat-tab>
+        <mat-tab label="Deposit"><app-deposit></app-deposit></mat-tab>
+        <mat-tab label="Withdraw"><app-withdraw></app-withdraw></mat-tab>
+    </mat-tab-group>
+</div>
