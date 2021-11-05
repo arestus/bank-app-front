@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionService } from 'src/app/services/transactions/transaction.service';
+import { Transaction } from 'src/app/models/transaction';
 
 @Component({
   selector: 'app-confirmation-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationPageComponent implements OnInit {
 
+  transaction!: Transaction;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit():void {
+  //  this.transaction = this.TransactionService.currentTransaction;
   }
 
 }

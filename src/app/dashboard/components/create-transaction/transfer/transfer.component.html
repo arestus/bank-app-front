@@ -1,5 +1,5 @@
     <p>{{currentAmount}}</p>
-    <form [formGroup] = "transferForm" #formDirective="ngForm"  (ngSubmit)="onFormSubmit(transferForm, formDirective)">
+    <form [formGroup] = "transferForm"   (ngSubmit)="onFormSubmit()">
                 <mat-form-field appearance="fill">
                     <mat-label>From account</mat-label>
                     <mat-select formControlName="to">

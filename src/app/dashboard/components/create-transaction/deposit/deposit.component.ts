@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
+import { TransactionService } from 'src/app/services/transactions/transaction.service';
 
 @Component({
   selector: 'app-deposit',
@@ -7,6 +8,7 @@ import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular
   styleUrls: ['./deposit.component.css']
 })
 export class DepositComponent implements OnInit {
+  transactionService!: TransactionService;
 
   depositForm = new FormGroup({
     to: new FormControl('', Validators.required),
