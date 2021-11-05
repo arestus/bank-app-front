@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
- import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { UserlistService } from 'src/app/services/userlist.service';
 
 @Component({
   selector: 'app-create-user',
@@ -10,28 +11,30 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CreateUserComponent implements OnInit {
   hide = true;
-  form: FormGroup;
+  form!: FormGroup;
 
   constructor(
+    public service: UserlistService,
     public dialogRef: MatDialogRef<CreateUserComponent>,
-    @Inject (MAT_DIALOG_DATA) public data: Object,
-    ) {
+    @Inject(MAT_DIALOG_DATA) public data: Object,
+  ) {
     this.form = new FormGroup({
-      Id: new FormControl(null),
-      fullName: new FormControl('', Validators.required),
+      customerID: new FormControl(null),
+      name: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       gender: new FormControl('1'),
-      dob: new FormControl(''),
+      dateOfBirth: new FormControl(''),
       address: new FormControl(''),
-      phoneNumber: new FormControl(''),
+      phone: new FormControl(''),
       email: new FormControl('', [Validators.required,
       Validators.email]),
-      accNo: new FormControl('', [Validators.minLength(16), Validators.required]),
+      aadhaarnumber: new FormControl(''),
+      paNnumber: new FormControl(''),
     });
   }
 
   ngOnInit(): void {
-
+    
   }
 
   onClear() {
@@ -49,15 +52,18 @@ export class CreateUserComponent implements OnInit {
   };
 
   onSubmit() {
+    
     // const invalid = [];
-    //     const controls = this.form.controls;
-    //     for (const name in controls) {
-    //         if (controls[name].invalid) {
-    //             invalid.push(name);
-    //         }
-    //     }
-    //     console.log(invalid) ;
-    console.log(this.form);
+    // const controls = this.form.controls;
+    // for (const name in controls) {
+    //   if (controls[name].invalid) {
+    //     invalid.push(name);
+    //   }
+    // }
+    // console.log(invalid,'invalid');
+
+
+     console.log(this.form,'controls');
     this.onClose();
   }
 

@@ -1,11 +1,12 @@
 export class UserModel {
-  Id: number = 0;
-  fullName:string ='';
+  customerID: number = 0;
+  name:string ='';
   password:string ='';
-  gender:string ='';
-  dob:string ='';
+  //gender:string ='';
+  dateOfBirth:string ='';
   address:string ='';
-  phoneNumber:string ='';
+  phone:string ='';
   email:string ='';
-  accNo:string ='';
+  aadhaarnumber:string ='';
+  paNnumber:string ='';
 }

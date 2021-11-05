@@ -19,26 +19,26 @@ export class UserlistService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-      let users = axios.get(environment.apiURL + '/Users')
+      let users = axios.get(environment.apiURL + '/Customer')
     //   this.http.get<UserModel[]>(environment.apiURL + '/Users').toPromise();
       console.log(users, 'userservice')
     return users
 }
 
 getById(id: string) {
-    return this.http.get<UserModel>(`${environment.apiURL + '/Users'}/${id}`).toPromise();
+    return this.http.get<UserModel>(`${environment.apiURL + '/Customer'}/${id}`).toPromise();
 }
 
 create(params: any) {
-    return this.http.post(environment.apiURL + '/Users', params).toPromise();
+    return this.http.post(environment.apiURL + '/Customer', params).toPromise();
 }
 
 update(id: string, params: any) {
-    return this.http.put(`${environment.apiURL + '/Users'}/${id}`, params).toPromise();
+    return this.http.put(`${environment.apiURL + '/Customer'}/${id}`, params).toPromise();
 }
 
 delete(id: string) {
-    return this.http.delete(`${environment.apiURL + '/Users'}/${id}`).toPromise();
+    return this.http.delete(`${environment.apiURL + '/Customer'}/${id}`).toPromise();
 }
   
 }

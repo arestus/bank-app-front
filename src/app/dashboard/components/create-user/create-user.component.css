@@ -31,6 +31,10 @@
 .mat-radio-button{
   margin-left: 10px;
 }
+.button-row{
+  float: right;
+  padding-right: 1.65%;
+}
 
 .button-row button{
   margin: 5px;

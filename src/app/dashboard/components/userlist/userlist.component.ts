@@ -27,7 +27,7 @@ export interface UserData {
 
 
 export class UserlistComponent implements OnInit {
-  displayedColumns: string[] = [ 'fullname', 'gender', 'email', 'dob', 'address', 'phoneNumber'];
+  displayedColumns: string[] = [ 'fullname', 'dateOfBirth', 'email', 'address', 'phoneNumber','aadhaarnumber'];
   users!: UserModel[];
   dataSource!: MatTableDataSource<UserModel>;
 

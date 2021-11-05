@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL : 'http://localhost:16184/api'
+  // apiURL : 'http://localhost:16184/api'
+  apiURL : 'https://induk-bank.azurewebsites.net/api'
 };
 
 /*
