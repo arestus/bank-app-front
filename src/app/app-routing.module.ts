@@ -18,10 +18,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  // },
   // { path: '', redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
   // { path: '**', redirectTo: redirection(false) }, // Wildcard route for a 404 page
 ];

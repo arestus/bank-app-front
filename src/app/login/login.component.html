@@ -2,21 +2,25 @@
   <div>Login</div>
 </div>
 <div class="container">
-  <mat-form-field appearance="fill" floatLabel="always">
-    <mat-label>Name</mat-label>
-    <input
-      matInput
-      type="text"
-      #username
-      class="example-right-align center"
-      placeholder="Enter your name"
-    />
-  </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input
+        class="center"
+        matInput
+        #userEmail
+        placeholder="pat@example.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
 
+  
   <mat-form-field appearance="fill" floatLabel="always">
     <mat-label>Enter your password</mat-label>
     <input
-      #userpass
+      #userPass
       matInput
       [type]="hide ? 'password' : 'text'"
       class="center"
@@ -46,7 +50,7 @@
       mat-raised-button
       color="primary"
       class="btn-style"
-      (click)="LogIn( username, userpass, selected)"
+      (click)="LogIn(userEmail, userPass, selected)"
     >
       Log In
     </button>
