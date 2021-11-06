@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+interface Role {
+  value: string;
+  viewValue: string;
+}
 
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,8 +18,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginComponent implements OnInit {
   hide = true;
-  constructor() { }
+  selected = 'Customer';
 
+  selectedValue: string='';
+  selectedCar: string='';
+  constructor() { }
+LogIn( name:any, pass:any, role:any){
+  console.log(name.value);
+  console.log(pass.value);
+  console.log(role);
+  
+}
   ngOnInit(): void {
   }
 
