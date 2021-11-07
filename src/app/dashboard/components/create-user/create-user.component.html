@@ -74,6 +74,7 @@
             formControlName="dateOfBirth"
             matInput
             [matDatepicker]="picker"
+            [max]="maxDate"
           />
           <mat-datepicker-toggle
             matSuffix
@@ -84,24 +85,28 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Phone Number</mat-label>
-          <input type="number" formControlName="phone" matInput />
+          <input formControlName="phone" matInput />
           <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="checkError('phone', 'pattern')"
+            >Only numbers</mat-error
+          >
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Aadhaar Number</mat-label>
-          <input type="number" matInput formControlName="aadhaarnumber" />
-          <mat-error *ngIf="checkError('aadhaarnumber', 'required')"
-            >Account number is required</mat-error
+          <input matInput formControlName="aadhaarnumber" />
+          <mat-error *ngIf="checkError('aadhaarnumber', 'pattern')"
+            >Only numbers</mat-error
           >
           <!-- <mat-error *ngIf="checkError('accNo', 'minlength')">Please type correct account number(16 digits)</mat-error> -->
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Pan Number</mat-label>
-          <input type="number" matInput formControlName="paNnumber" />
-         
-         
+          <input matInput formControlName="paNnumber" />
+          <mat-error *ngIf="checkError('paNnumber', 'pattern')"
+            >Only numbers</mat-error
+          >
         </mat-form-field>
 
         <!-- <div class="add-bottom-padding">
@@ -111,7 +116,6 @@
             <mat-radio-button value="3">Other</mat-radio-button>
           </mat-radio-group>
         </div> -->
-        
       </div>
     </mat-grid-tile>
   </mat-grid-list>
@@ -124,12 +128,7 @@
     >
       Submit
     </button>
-    <button
-      type="button"
-      mat-raised-button
-      color="warn"
-      (click)="onClear()"
-    >
+    <button type="button" mat-raised-button color="warn" (click)="onClear()">
       Clear
     </button>
   </div>

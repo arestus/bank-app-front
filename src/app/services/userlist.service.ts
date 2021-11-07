@@ -29,7 +29,7 @@ getById(id: string) {
     return this.http.get<UserModel>(`${environment.apiURL + '/Customer'}/${id}`).toPromise();
 }
 
-create(params: any) {
+create(params: UserModel) {
     return this.http.post(environment.apiURL + '/Customer', params).toPromise();
 }
 

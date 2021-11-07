@@ -10,6 +10,7 @@ import { UserlistService } from 'src/app/services/userlist.service';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  maxDate: Date;
   hide = true;
   form!: FormGroup;
 
@@ -18,23 +19,24 @@ export class CreateUserComponent implements OnInit {
     public dialogRef: MatDialogRef<CreateUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Object,
   ) {
+    this.maxDate = new Date();
     this.form = new FormGroup({
       customerID: new FormControl(null),
-      name: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      gender: new FormControl('1'),
-      dateOfBirth: new FormControl(''),
-      address: new FormControl(''),
-      phone: new FormControl(''),
-      email: new FormControl('', [Validators.required,
+      name: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required),
+      //gender: new FormControl('1'),
+      dateOfBirth: new FormControl(""),
+      address: new FormControl(""),
+      phone: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      email: new FormControl("", [Validators.required,
       Validators.email]),
-      aadhaarnumber: new FormControl(''),
-      paNnumber: new FormControl(''),
+      aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
     });
   }
 
   ngOnInit(): void {
-    
+
   }
 
   onClear() {
@@ -52,7 +54,7 @@ export class CreateUserComponent implements OnInit {
   };
 
   onSubmit() {
-    
+
     // const invalid = [];
     // const controls = this.form.controls;
     // for (const name in controls) {
@@ -62,8 +64,9 @@ export class CreateUserComponent implements OnInit {
     // }
     // console.log(invalid,'invalid');
 
+    this.service.create(this.form.value);
 
-     console.log(this.form,'controls');
+    console.log(this.form.value, 'form');
     this.onClose();
   }
 
