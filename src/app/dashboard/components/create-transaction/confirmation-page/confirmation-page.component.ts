@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
+import { ConfirmationService } from 'src/app/services/transactions/confirmation.service';
 import { Transaction } from 'src/app/models/transaction';
 
 @Component({
@@ -9,12 +10,22 @@ import { Transaction } from 'src/app/models/transaction';
 })
 export class ConfirmationPageComponent implements OnInit {
 
-  transaction!: Transaction;
+  currentTransaction!: Transaction;
 
-  constructor() { }
+
+  constructor(
+    private transactionService: TransactionService,
+    private confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit():void {
-  //  this.transaction = this.TransactionService.currentTransaction;
+    this.currentTransaction = this.transactionService.currentTransaction;
   }
 
+  confirmTransaction() {
+    if (this.currentTransaction.type === "transfer") {
+      this.confirmationService.transferTransaction(this.currentTransaction);
+      console.log(this.currentTransaction)
+    }
+  }
 }

@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class TransferComponent implements OnInit {
 
   transaction!: Transaction;
-  transactionService!: TransactionService;
 
   currentAmount:number = 5;
   transferForm = new FormGroup({
@@ -35,16 +34,7 @@ export class TransferComponent implements OnInit {
     return this.transferForm.get('desc');
   }
 
-  constructor(private router: Router) {}
-
-  // onFormSubmit(formData: any, formDirective: FormGroupDirective){
-  //   console.log('To:' + this.transferForm.get('to')!.value);
-  //   console.log('From:' + this.transferForm.get('from')!.value);
-  //   console.log('Amount:' + this.transferForm.get('amount')!.value);
-  //   console.log('Description:' + this.transferForm.get('desc')!.value);
-  //   formDirective.resetForm();
-  //   this.reset();
-  // }
+  constructor(private router: Router, private transactionService: TransactionService) {}
 
   onFormSubmit(){
     const type = "transfer";
@@ -53,18 +43,11 @@ export class TransferComponent implements OnInit {
     const amount = this.transferForm.get('amount')!.value;
     const description = this.transferForm.get('desc')!.value;
     const currentTransaction = new Transaction(type, from, to, amount, description)
-    console.log(currentTransaction)
-    this.router.navigate(["admin/confirmation"]);
-    
-    // this.transactionService.currentTransaction = currentTransaction;
-    // this.router.navigateByUrl('http://localhost:4200/admin/confirmation');
 
-  }
-
-  saveNewTransaction(transaction: object) {
-    this.transactionService.currentTransaction = transaction;
+    this.transactionService.setNewTransaction(currentTransaction);
     this.router.navigate(["admin/confirmation"]);
   }
+
 
   ngOnInit(): void {
   }

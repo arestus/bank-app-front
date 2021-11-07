@@ -1,10 +1,10 @@
 <p>confirmation-page works!</p>
-<ul>
-    <li>Transaction type: </li>
-    <li>From account: </li>
-    <li>To account: </li>
-    <li>Amount: </li>
-    <li>Description: </li>
+<ul *ngIf="this.currentTransaction">
+    <li>Transaction type: {{currentTransaction.type}}</li>
+    <li>From account: {{currentTransaction.from}}</li>
+    <li>To account: {{currentTransaction.to}}</li>
+    <li>Amount: {{currentTransaction.amount}}</li>
+    <li>Description: {{currentTransaction.desc}}</li>
 </ul>
-<button>Confirm</button>
+<button (click)="confirmTransaction()">Confirm</button>
 <button>Cancel</button>
