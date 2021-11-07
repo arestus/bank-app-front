@@ -1,4 +1,43 @@
-<app-login></app-login>
+<!-- <app-login></app-login> -->
 
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="button"
+    aria-label="Example icon-button with menu icon"
+  >
+    <!-- <mat-icon>menu</mat-icon> -->
+    <div class="letters">
+      <span class="letter-1">I</span>
+      <span class="letter-2">n</span>
+      <span class="letter-3">d</span>
+      <span class="letter-4">U</span>
+      <span class="letter-5">k</span>
+    </div>
+    <div class="letters letters-bank">Bank</div>
+  </button>
+  <span class="spacer"></span>
 
+  <div *ngIf="ShowName()">
+    <div class="letters">
+      Available balance: {{ balance }} <mat-icon> currency_rupee </mat-icon>   | <button
+     mat-button
+     
+      class=" letters"
+      (click)="LogOut()"
+    >   {{name}} </button>   |  <button
+    mat-button
+    class="letters-balance letters"
+    aria-label="Example icon-button with menu icon"
+    (click)="LogOut()"
+  >  <mat-icon> logout </mat-icon>  </button>  
+    </div>
+   
+  </div>
+ 
+</mat-toolbar>
+<div class="login" *ngIf="!ShowName()"> 
+
+    <app-login></app-login>
+</div>
 <router-outlet></router-outlet>

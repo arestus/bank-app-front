@@ -42,7 +42,7 @@ import { TransferComponent } from './dashboard/components/create-transaction/tra
 import { DepositComponent } from './dashboard/components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -59,7 +59,7 @@ import { LoginComponent } from './login/login.component';
     DepositComponent,
     WithdrawComponent,
   ],
-  imports: [
+  imports: [MatMenuModule,
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
