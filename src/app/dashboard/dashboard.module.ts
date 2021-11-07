@@ -11,6 +11,7 @@ import { CreateTransactionComponent } from './components/create-transaction/crea
 import { TransferComponent } from './components/create-transaction/transfer/transfer.component';
 import { DepositComponent } from './components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './components/create-transaction/withdraw/withdraw.component';
+import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
 
 // import { LoginComponent } from '../login/login.component';
 
@@ -27,6 +28,8 @@ import { WithdrawComponent } from './components/create-transaction/withdraw/with
     // DepositComponent,
     // WithdrawComponent,
 
+  
+    ConfirmationPageComponent
   ],
   imports: [
     CommonModule,

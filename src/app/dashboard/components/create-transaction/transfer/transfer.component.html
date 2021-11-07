@@ -1,70 +1,32 @@
-<p>{{ currentAmount }}</p>
-<form
-  [formGroup]="transferForm"
-  #formDirective="ngForm"
-  (ngSubmit)="onFormSubmit(transferForm, formDirective)"
->
-  <mat-form-field appearance="fill">
-    <mat-label>From account</mat-label>
-    <mat-select formControlName="to">
-      <mat-option value="Account #1">First account</mat-option>
-      <mat-option value="Account #2">Second account</mat-option>
-    </mat-select>
-    <!-- <input formControlName="to" type="number"  matInput> -->
-    <mat-error
-      *ngIf="this.transferForm.controls.from.hasError('required')"
-      [ngClass]="'error'"
-      >Choose your account!</mat-error
-    >
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>To account</mat-label>
-    <input formControlName="from" type="number" required matInput />
-    <mat-error
-      *ngIf="this.transferForm.controls.to.hasError('required')"
-      [ngClass]="'error'"
-      >Enter the recipient's account number</mat-error
-    >
-  </mat-form-field>
-  <mat-form-field appearance="fill" floatLabel="always">
-    <mat-label>Amount</mat-label>
-    <input
-      formControlName="amount"
-      type="number"
-      max="this.currentAmount"
-      class="right-align"
-      placeholder="0"
-      matInput
-    />
-    <mat-error
-      *ngIf="this.transferForm.controls.amount.hasError('max')"
-      [ngClass]="'error'"
-      >Not enough money!</mat-error
-    >
-    <mat-error
-      *ngIf="this.transferForm.controls.amount.hasError('min')"
-      [ngClass]="'error'"
-      >The minimum allowed value is $2.00</mat-error
-    >
-    <span matSuffix>.00</span>
-    <span matPrefix>$&nbsp;</span>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Description</mat-label>
-    <textarea formControlName="desc" type="text" matInput></textarea>
-    <mat-error
-      *ngIf="this.transferForm.controls.desc.hasError('required')"
-      [ngClass]="'error'"
-      >Enter the description</mat-error
-    >
-  </mat-form-field>
-  <button mat-raised-button color="basic" (click)="reset()">Cancel</button>
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    [disabled]="!transferForm.valid"
-  >
-    Create
-  </button>
-</form>
+    <p>{{currentAmount}}</p>
+    <form [formGroup] = "transferForm"   (ngSubmit)="onFormSubmit()">
+                <mat-form-field appearance="fill">
+                    <mat-label>From account</mat-label>
+                    <mat-select formControlName="to">
+                        <mat-option value="Account #1">First account</mat-option>
+                        <mat-option value="Account #2">Second account</mat-option>
+                    </mat-select>
+                    <!-- <input formControlName="to" type="number"  matInput> -->
+                    <mat-error *ngIf="this.transferForm.controls.from.hasError('required')" [ngClass]="'error'">Choose your account!</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>To account</mat-label>
+                    <input formControlName="from" type="number" required matInput>
+                    <mat-error *ngIf="this.transferForm.controls.to.hasError('required')" [ngClass]="'error'">Enter the recipient's account number</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label>Amount</mat-label>
+                    <input formControlName="amount" type="number" max="this.currentAmount" class="right-align" placeholder="0" matInput>
+                    <mat-error *ngIf="this.transferForm.controls.amount.hasError('max')" [ngClass]="'error'">Not enough money!</mat-error>
+                    <mat-error *ngIf="this.transferForm.controls.amount.hasError('min')" [ngClass]="'error'">The minimum allowed value is $2.00</mat-error>
+                    <span matSuffix>.00</span>
+                    <span matPrefix>$&nbsp;</span>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <textarea formControlName="desc" type="text" matInput></textarea>
+                    <mat-error *ngIf="this.transferForm.controls.desc.hasError('required')" [ngClass]="'error'">Enter the description</mat-error>
+                </mat-form-field>
+        <button mat-raised-button color="basic" (click)="reset()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!transferForm.valid">Create</button>
+    </form>
