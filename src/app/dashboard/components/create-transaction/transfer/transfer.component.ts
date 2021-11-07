@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
+import { Transaction } from 'src/app/models/transaction';
+import { TransactionService } from 'src/app/services/transactions/transaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transfer',
@@ -7,6 +10,8 @@ import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
+
+  transaction!: Transaction;
 
   currentAmount:number = 5;
   transferForm = new FormGroup({
@@ -29,16 +34,20 @@ export class TransferComponent implements OnInit {
     return this.transferForm.get('desc');
   }
 
-  constructor() { }
+  constructor(private router: Router, private transactionService: TransactionService) {}
 
-  onFormSubmit(formData: any, formDirective: FormGroupDirective){
-    console.log('To:' + this.transferForm.get('to')!.value);
-    console.log('From:' + this.transferForm.get('from')!.value);
-    console.log('Amount:' + this.transferForm.get('amount')!.value);
-    console.log('Description:' + this.transferForm.get('desc')!.value);
-    formDirective.resetForm();
-    this.reset();
+  onFormSubmit(){
+    const type = "transfer";
+    const from = this.transferForm.get('from')!.value;
+    const to = this.transferForm.get('to')!.value;
+    const amount = this.transferForm.get('amount')!.value;
+    const description = this.transferForm.get('desc')!.value;
+    const currentTransaction = new Transaction(type, from, to, amount, description)
+
+    this.transactionService.setNewTransaction(currentTransaction);
+    this.router.navigate(["admin/confirmation"]);
   }
+
 
   ngOnInit(): void {
   }
