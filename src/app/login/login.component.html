@@ -1,25 +1,58 @@
-<p>login works!</p>
-<h2>Create Transaction</h2>
-<div class="example-container ">
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
+<div class="center">
+  <div>Login</div>
+</div>
+<div class="container">
   
-    <mat-form-field appearance="fill" floatLabel="always">
-      <mat-label>Amount</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0">
-      <span matPrefix>$&nbsp;</span>
-      <span matSuffix>.00</span>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input
+        class="center"
+        matInput
+        #userEmail
+        placeholder="pat@example.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
     </mat-form-field>
+
+  
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Enter your password</mat-label>
+    <input
+      #userPass
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      class="center"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select role</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="Customer">Customer</mat-option>
+      <mat-option value="Employee">Employee</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-style"
+      (click)="LogIn(userEmail, userPass, selected)"
+    >
+      Log In
+    </button>
   </div>
-  <!-- <div class="container">
-    <mat-tab-group mat-stretch-tabs class="tabs-list">
-        <mat-tab label="Transfer"><app-transfer></app-transfer></mat-tab>
-        <mat-tab label="Deposit"><app-deposit></app-deposit></mat-tab>
-        <mat-tab label="Withdraw"><app-withdraw></app-withdraw></mat-tab>
-    </mat-tab-group>
-</div> -->
+</div>
