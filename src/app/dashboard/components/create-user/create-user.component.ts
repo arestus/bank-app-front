@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
- import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { UserlistService } from 'src/app/services/userlist.service';
 
 @Component({
   selector: 'app-create-user',
@@ -9,24 +10,28 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  maxDate: Date;
   hide = true;
-  form: FormGroup;
+  form!: FormGroup;
 
   constructor(
+    public service: UserlistService,
     public dialogRef: MatDialogRef<CreateUserComponent>,
-    @Inject (MAT_DIALOG_DATA) public data: Object,
-    ) {
+    @Inject(MAT_DIALOG_DATA) public data: Object,
+  ) {
+    this.maxDate = new Date();
     this.form = new FormGroup({
-      Id: new FormControl(null),
-      fullName: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      gender: new FormControl('1'),
-      dob: new FormControl(''),
-      address: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      email: new FormControl('', [Validators.required,
+      customerID: new FormControl(null),
+      name: new FormControl("", Validators.required),
+      password: new FormControl("", Validators.required),
+      //gender: new FormControl('1'),
+      dateOfBirth: new FormControl(""),
+      address: new FormControl(""),
+      phone: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      email: new FormControl("", [Validators.required,
       Validators.email]),
-      accNo: new FormControl('', [Validators.minLength(16), Validators.required]),
+      aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
     });
   }
 
@@ -49,15 +54,19 @@ export class CreateUserComponent implements OnInit {
   };
 
   onSubmit() {
+
     // const invalid = [];
-    //     const controls = this.form.controls;
-    //     for (const name in controls) {
-    //         if (controls[name].invalid) {
-    //             invalid.push(name);
-    //         }
-    //     }
-    //     console.log(invalid) ;
-    console.log(this.form);
+    // const controls = this.form.controls;
+    // for (const name in controls) {
+    //   if (controls[name].invalid) {
+    //     invalid.push(name);
+    //   }
+    // }
+    // console.log(invalid,'invalid');
+
+    this.service.create(this.form.value);
+
+    console.log(this.form.value, 'form');
     this.onClose();
   }
 

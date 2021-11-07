@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 
 import { UserlistService } from './services/userlist.service';
@@ -64,7 +64,6 @@ import {MatMenuModule} from '@angular/material/menu';
     AppRoutingModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,

@@ -13,6 +13,7 @@ import { DepositComponent } from './components/create-transaction/deposit/deposi
 import { WithdrawComponent } from './components/create-transaction/withdraw/withdraw.component';
 import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
 
+
 // import { LoginComponent } from '../login/login.component';
 
 @NgModule({

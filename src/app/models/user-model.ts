@@ -1,4 +1,5 @@
 export class UserModel {
+
   // Id: number = 0;
   // fullName:string ='';
   // password:string ='';
@@ -20,4 +21,5 @@ export class UserModel {
   dateOfBirth:string ='';
   jwtToken:string ='';
   role:string ='';
+
 }
