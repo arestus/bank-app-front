@@ -1,3 +1,4 @@
+import { ConfirmationPageComponent } from './dashboard/components/create-transaction/confirmation-page/confirmation-page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import {
   ErrorStateMatcher,
   MatOption,
@@ -55,6 +57,7 @@ import {MatMenuModule} from '@angular/material/menu';
     UserlistComponent,
     CreateUserComponent,
     CreateTransactionComponent,
+    ConfirmationPageComponent,
     TransferComponent,
     DepositComponent,
     WithdrawComponent,
@@ -77,6 +80,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatTabsModule,
     MatButtonModule,
     MatSelectModule,

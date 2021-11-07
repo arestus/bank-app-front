@@ -12,6 +12,6 @@ export class ConfirmationService {
 
   transferTransaction(transaction: any) {
     console.log("works!")
-    return this.http.post(environment.apiURL + '/TransactionHistory/Transfer', transaction).toPromise();
+    return this.http.post('https://induk-bank.azurewebsites.net/api/Transaction/Transfer', transaction);
   }
 }
