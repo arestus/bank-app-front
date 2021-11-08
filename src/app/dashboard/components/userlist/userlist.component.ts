@@ -8,16 +8,6 @@ import { UserlistService } from 'src/app/services/userlist.service';
 import { UserModel } from 'src/app/models/user-model';
 
 
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
-
-
-
 @Component({
   selector: 'app-userlist',
   templateUrl: './userlist.component.html',
@@ -27,7 +17,7 @@ export interface UserData {
 
 
 export class UserlistComponent implements OnInit {
-  displayedColumns: string[] = [ 'fullname', 'dateOfBirth', 'email', 'address', 'phoneNumber','aadhaarnumber'];
+  displayedColumns: string[] = ['Id','fullname', 'dateOfBirth', 'email', 'address', 'phoneNumber', 'aadhaarnumber','actions'];
   users!: UserModel[];
   dataSource!: MatTableDataSource<UserModel>;
 
@@ -72,6 +62,19 @@ export class UserlistComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
     this.dialog.open(CreateUserComponent, dialogConfig);
+  }
+
+  startEdit(index:any, item:any) {
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.disableClose = true;
+    // dialogConfig.width = "50%";
+    // dialogConfig.data = { index, item };
+    // this.dialog.open(CreateUserComponent, dialogConfig);
+  }
+
+  deleteItem(id: string){
+
   }
 
 
