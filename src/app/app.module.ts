@@ -1,3 +1,4 @@
+import { ConfirmationPageComponent } from './dashboard/components/create-transaction/confirmation-page/confirmation-page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import {
   ErrorStateMatcher,
   MatOption,
@@ -42,8 +44,12 @@ import { TransferComponent } from './dashboard/components/create-transaction/tra
 import { DepositComponent } from './dashboard/components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
+
 import {MatMenuModule} from '@angular/material/menu';
 import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit-user.component';
+
+
+import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
 
 
 
@@ -54,10 +60,12 @@ import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit
     PaymentComponent,
     HistoryComponent,
     WrapperComponent,
+    WrapperComponentUser,
     UserlistComponent,
     CreateUserComponent,
     EditUserComponent,
     CreateTransactionComponent,
+    ConfirmationPageComponent,
     TransferComponent,
     DepositComponent,
     WithdrawComponent,
@@ -81,6 +89,7 @@ import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit
     MatInputModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatTabsModule,
     MatButtonModule,
     MatSelectModule,

@@ -1,10 +1,16 @@
-<p>confirmation-page works!</p>
-<ul *ngIf="this.currentTransaction">
-    <li>Transaction type: {{currentTransaction.type}}</li>
-    <li>From account: {{currentTransaction.from}}</li>
-    <li>To account: {{currentTransaction.to}}</li>
-    <li>Amount: {{currentTransaction.amount}}</li>
-    <li>Description: {{currentTransaction.desc}}</li>
-</ul>
-<button (click)="confirmTransaction()">Confirm</button>
-<button>Cancel</button>
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-title *ngIf="!this.currentTransaction">You have not added any transactions yet!</mat-card-title>
+        <mat-card-content *ngIf="this.currentTransaction">
+            <mat-card-title>Transaction type: {{currentTransaction.type}}</mat-card-title>
+            <p>From account: {{currentTransaction.fromAccountId}}</p>
+            <p>To account: {{currentTransaction.toAccountId}}</p>
+            <p>Amount: {{currentTransaction.amount}}</p>
+            <p>Description: {{currentTransaction.descriptions}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button *ngIf="this.currentTransaction" mat-button (click)="confirmTransaction()">Confirm</button>
+            <button *ngIf="this.currentTransaction" mat-button>Cancel</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
