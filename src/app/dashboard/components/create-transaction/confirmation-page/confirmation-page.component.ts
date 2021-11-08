@@ -24,8 +24,9 @@ export class ConfirmationPageComponent implements OnInit {
 
   confirmTransaction() {
     if (this.currentTransaction.type === "transfer") {
-      this.confirmationService.transferTransaction(this.currentTransaction);
-      console.log(this.currentTransaction)
+      this.confirmationService.transferTransaction(this.currentTransaction).subscribe((transData) => {
+        console.log(transData);
+      });
     }
   }
 }

@@ -1,21 +1,21 @@
 export class Transaction {
   public type: string;
-  public from: string;
-  public to: string;
+  public fromAccountId: number;
+  public toAccountId: number;
   public amount: number;
-  public desc: string;
+  public descriptions: string;
    
     constructor(
         type: string,
-        from: string,
-        to: string,
+        from: number,
+        to: number,
         amount: number,
         desc: string,
     ) {
             this.type = type,
-            this.from = from,
-            this.to = to,
+            this.fromAccountId = from,
+            this.toAccountId = to,
             this.amount = amount,
-            this.desc = desc
+            this.descriptions = desc
          }
 }
