@@ -17,26 +17,31 @@ export class CreateUserComponent implements OnInit {
   constructor(
     public service: UserlistService,
     public dialogRef: MatDialogRef<CreateUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Object,
+    @Inject(MAT_DIALOG_DATA) public data: {index:any,item: any},
   ) {
     this.maxDate = new Date();
-    this.form = new FormGroup({
-      customerID: new FormControl(null),
-      name: new FormControl("", Validators.required),
-      password: new FormControl("", Validators.required),
-      //gender: new FormControl('1'),
-      dateOfBirth: new FormControl(""),
-      address: new FormControl(""),
-      phone: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-      email: new FormControl("", [Validators.required,
-      Validators.email]),
-      aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-      paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-    });
+
+    
+      this.form = new FormGroup({
+        //customerID: new FormControl(null),
+        name: new FormControl("", Validators.required),
+        password: new FormControl("", Validators.required),
+        //gender: new FormControl('1'),
+        dateOfBirth: new FormControl(""),
+        address: new FormControl(""),
+        phone: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+        email: new FormControl("", [Validators.required,
+        Validators.email]),
+        aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+        paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+      });
+   
+
+    
   }
 
   ngOnInit(): void {
-
+   
   }
 
   onClear() {
