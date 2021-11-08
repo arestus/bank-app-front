@@ -20,7 +20,7 @@ export class AppComponent {
       let storage = localStorage.getItem('induk-bank-user')
       let parsedStorage = JSON.parse(storage as string)
       this.name = parsedStorage.name;
-      console.log(parsedStorage);
+      // console.log(parsedStorage);
       return true;
     } else {
       return false

@@ -30,14 +30,15 @@ import { ConfirmationPageComponent } from './components/create-transaction/confi
     // DepositComponent,
     // WithdrawComponent,
 
+
   
     ConfirmationPageComponent,
   
+
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-   
   ],
   
 })
