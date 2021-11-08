@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         user.jwtToken = userAfterLogin.jwtToken;
         user.role = role;
         let token = JSON.stringify(user);
-        console.log(token);
+        // console.log(token);
         localStorage.setItem('induk-bank-user', token);
       });
     });

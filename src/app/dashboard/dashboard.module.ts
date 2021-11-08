@@ -28,9 +28,6 @@ import { ConfirmationPageComponent } from './components/create-transaction/confi
     // TransferComponent,
     // DepositComponent,
     // WithdrawComponent,
-
-  
-    ConfirmationPageComponent
   ],
   imports: [
     CommonModule,

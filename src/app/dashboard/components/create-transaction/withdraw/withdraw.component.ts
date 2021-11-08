@@ -36,7 +36,7 @@ export class WithdrawComponent implements OnInit {
 
   onFormSubmit(){
     const type = "withdraw";
-    const to = "withdraw";
+    const to = 0;
     const from = this.withdrawForm.get('from')!.value;
     const amount = this.withdrawForm.get('amount')!.value;
     const description = this.withdrawForm.get('desc')!.value;

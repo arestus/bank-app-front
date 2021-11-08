@@ -1,0 +1,13 @@
+.container {
+  padding: 20px;
+  justify-content: center;
+}
+/* button {
+  width: 20%;
+  margin-top: 1rem;
+  margin-right: 10px;
+} */
+.example-card {
+  max-width: 400px;
+  margin: 0;
+}

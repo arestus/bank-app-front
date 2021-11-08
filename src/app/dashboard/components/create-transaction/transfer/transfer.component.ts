@@ -13,7 +13,7 @@ export class TransferComponent implements OnInit {
 
   transaction!: Transaction;
 
-  currentAmount:number = 5;
+  currentAmount:number = 100;
   transferForm = new FormGroup({
     to: new FormControl('', Validators.required),
     from: new FormControl('', Validators.required),
