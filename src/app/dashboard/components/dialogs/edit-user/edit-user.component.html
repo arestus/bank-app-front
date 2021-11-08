@@ -1,0 +1,139 @@
+<div class="new-user-container">
+  <h1>Editing customer with id: {{data.item.customerID}} </h1>
+  <button
+    class="btn-dialog-close"
+    mat-stroked-button
+    color="accent"
+    (click)="onClose()"
+    tabIndex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px" class="normal-form">
+    <!-- <input type="hidden" formControlName="customerID" /> -->
+   
+    <mat-grid-tile>
+      <div class="controles-container">
+       
+        
+
+
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="checkError('name', 'required')"
+            >Full name is required</mat-error
+          >
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          
+        </mat-form-field> -->
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" />
+          <mat-error *ngIf="checkError('email', 'required')"
+            >Email is required</mat-error
+          >
+          <mat-error *ngIf="checkError('email', 'email')"
+            >Please type correct email</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" />
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Birth Day</mat-label>
+          <input
+            formControlName="dateOfBirth"
+            matInput
+            [matDatepicker]="picker"
+            [max]="maxDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input formControlName="phone" matInput />
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="checkError('phone', 'pattern')"
+            >Only numbers</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Aadhaar Number</mat-label>
+          <input matInput formControlName="aadhaarnumber" />
+          <mat-error *ngIf="checkError('aadhaarnumber', 'pattern')"
+            >Only numbers</mat-error
+          >
+          <!-- <mat-error *ngIf="checkError('accNo', 'minlength')">Please type correct account number(16 digits)</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Pan Number</mat-label>
+          <input matInput formControlName="paNnumber" />
+          <mat-error *ngIf="checkError('paNnumber', 'pattern')"
+            >Only numbers</mat-error
+          >
+        </mat-form-field>
+
+        <!-- <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+            <mat-radio-button value="3">Other</mat-radio-button>
+          </mat-radio-group>
+        </div> -->
+      </div>
+    </mat-grid-tile>
+ 
+  </mat-grid-list>
+  <div class="button-row">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+    <button type="button" mat-raised-button color="warn" (click)="onClear()">
+      Clear
+    </button>
+  </div>
+</form>

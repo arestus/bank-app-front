@@ -38,14 +38,19 @@ import { PaymentComponent } from './dashboard/components/payment/payment.compone
 import { HistoryComponent } from './dashboard/components/history/history.component';
 import { WrapperComponent } from './dashboard/components/wrapper/wrapper.component';
 import { UserlistComponent } from './dashboard/components/userlist/userlist.component';
-import { CreateUserComponent } from './dashboard/components/create-user/create-user.component';
+import { CreateUserComponent } from './dashboard/components/dialogs/create-user/create-user.component';
 import { CreateTransactionComponent } from './dashboard/components/create-transaction/create-transaction.component';
 import { TransferComponent } from './dashboard/components/create-transaction/transfer/transfer.component';
 import { DepositComponent } from './dashboard/components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
-import { MatMenuModule } from '@angular/material/menu';
+
+import {MatMenuModule} from '@angular/material/menu';
+import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit-user.component';
+
+
 import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
+
 
 
 @NgModule({
@@ -58,11 +63,13 @@ import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrappe
     WrapperComponentUser,
     UserlistComponent,
     CreateUserComponent,
+    EditUserComponent,
     CreateTransactionComponent,
     ConfirmationPageComponent,
     TransferComponent,
     DepositComponent,
     WithdrawComponent,
+  
   ],
   imports: [MatMenuModule,
     BrowserModule,

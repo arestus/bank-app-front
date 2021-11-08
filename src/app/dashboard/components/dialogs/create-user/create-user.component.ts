@@ -23,8 +23,9 @@ export class CreateUserComponent implements OnInit {
 
     
       this.form = new FormGroup({
-        //customerID: new FormControl(null),
-        name: new FormControl("", Validators.required),
+        // customerID: new FormControl(null),
+        
+          name: new FormControl("", Validators.required),
         password: new FormControl("", Validators.required),
         //gender: new FormControl('1'),
         dateOfBirth: new FormControl(""),
@@ -33,7 +34,8 @@ export class CreateUserComponent implements OnInit {
         email: new FormControl("", [Validators.required,
         Validators.email]),
         aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-        paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
+        paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/))
+        ,
       });
    
 
