@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  {
+    path: 'customer',
+    loadChildren: () =>
+      import('./dashboard/dashboard-customer.module').then((m) => m.DashboardCustomerModule),
+  },
   // {
   //   path: 'login',
   //   component: LoginComponent,

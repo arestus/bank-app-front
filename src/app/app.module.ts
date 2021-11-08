@@ -44,7 +44,8 @@ import { TransferComponent } from './dashboard/components/create-transaction/tra
 import { DepositComponent } from './dashboard/components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {MatMenuModule} from '@angular/material/menu';
     PaymentComponent,
     HistoryComponent,
     WrapperComponent,
+    WrapperComponentUser,
     UserlistComponent,
     CreateUserComponent,
     CreateTransactionComponent,

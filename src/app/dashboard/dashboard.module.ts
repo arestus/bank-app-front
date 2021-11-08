@@ -32,7 +32,6 @@ import { ConfirmationPageComponent } from './components/create-transaction/confi
   imports: [
     CommonModule,
     DashboardRoutingModule,
-   
   ],
   
 })
