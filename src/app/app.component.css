@@ -23,7 +23,7 @@ mat-list-item span {
 
 .letters {
   font-family: "Roboto", sans-serif;
-  font-size: 36px;
+  font-size: 30px;
 }
 .letters-bank {
   font-family: "Roboto", sans-serif;
@@ -60,6 +60,7 @@ mat-list-item span {
 .mat-toolbar-row,
 .mat-toolbar-single-row {
   height: 80px;
+  padding-left: 0;
 }
 
 .login{

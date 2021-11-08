@@ -10,28 +10,40 @@ import { LoginService } from './services/login-service/login.service';
 export class AppComponent {
   balance = 4654;
   title = 'bank-app';
-  unAuthorized: boolean = true;
-  name = 'As';
-  constructor(private router: Router, private loginService: LoginService) {
-    this.unAuthorized = loginService.unAuthorized;
-  }
+  accountText = 'Current account';
+  accountType = 'CURRENT';
+  name = '';
+  constructor(private router: Router, private loginService: LoginService) {}
   ShowName() {
     if (localStorage.getItem('induk-bank-user')) {
-      let storage = localStorage.getItem('induk-bank-user')
-      let parsedStorage = JSON.parse(storage as string)
+      let storage = localStorage.getItem('induk-bank-user');
+      let parsedStorage = JSON.parse(storage as string);
       this.name = parsedStorage.name;
-      // console.log(parsedStorage);
+      if (this.accountType === 'CURRENT') {
+        this.accountText = 'Current account';
+        this.balance = parsedStorage.currentBalance;
+      } else if (this.accountType === 'SAVINGS') {
+        this.accountText = 'Saving account';
+        this.balance = parsedStorage.savingBalance;
+      }
+      console.log(parsedStorage);
       return true;
     } else {
-      return false
+      return false;
     }
-   
   }
+
+  ChangeAccount(type: any) {
+    this.accountType = type;
+    console.log('test33333');
+  }
+  ChangeAccountType() {
+    this.ChangeAccount('SAVINGS');
+  }
+
   LogOut() {
-    console.log("tets");
-    
     this.loginService.logOut();
-    
+
     this.router.navigate(['']);
   }
 }

@@ -1,17 +1,10 @@
 export class UserModel {
-
-  // Id: number = 0;
-  // fullName:string ='';
-  // password:string ='';
-  // gender:string ='';
-  // dob:string ='';
-  // address:string ='';
-  // phoneNumber:string ='';
-  // email:string ='';
-  // accNo:string ='';
-
   customerID: number = 0;
   email:string ='';
+  savingAcount:number =0;
+  currentAcount:number =0;
+  savingBalance:number =0;
+  currentBalance:number =0;
   name:string ='';
   password:string ='';
   phone:string ='';

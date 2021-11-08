@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-history',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private appComponent:AppComponent) { }
+  test(){
+    this.appComponent.ChangeAccount("SAVINGS")
+    console.log("test");
+    
+  }
+  test2(){
+    this.appComponent.ChangeAccount("CURRENT")
+    console.log("test");
+    
+  }
   ngOnInit(): void {
   }
 
