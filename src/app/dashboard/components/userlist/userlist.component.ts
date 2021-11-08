@@ -3,9 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { CreateUserComponent } from '../create-user/create-user.component';
+import { CreateUserComponent } from '../dialogs/create-user/create-user.component';
 import { UserlistService } from 'src/app/services/userlist.service';
 import { UserModel } from 'src/app/models/user-model';
+import { EditUserComponent } from '../dialogs/edit-user/edit-user.component';
 
 
 @Component({
@@ -65,12 +66,12 @@ export class UserlistComponent implements OnInit {
   }
 
   startEdit(index:any, item:any) {
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.disableClose = true;
-    // dialogConfig.width = "50%";
-    // dialogConfig.data = { index, item };
-    // this.dialog.open(CreateUserComponent, dialogConfig);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data = { index, item };
+    this.dialog.open(EditUserComponent, dialogConfig);
   }
 
   deleteItem(id: string){
