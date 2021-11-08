@@ -36,7 +36,7 @@ export class DepositComponent implements OnInit {
 
   onFormSubmit(){
     const type = "deposit";
-    const from = "deposit";
+    const from = 0;
     const to = this.depositForm.get('to')!.value;
     const amount = this.depositForm.get('amount')!.value;
     const description = this.depositForm.get('desc')!.value;
