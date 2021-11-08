@@ -15,8 +15,10 @@
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container>
-        
+
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row" >{{row.customerID}}</td>
       </ng-container>
 
       <ng-container matColumnDef="fullname">
@@ -52,6 +54,19 @@
       <ng-container matColumnDef="aadhaarnumber">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>aadhaarnumber</th>
         <td mat-cell *matCellDef="let row">{{ row.aadhaarnumber }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <button mat-icon-button color="accent" (click)="startEdit(i,row)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="accent">
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
