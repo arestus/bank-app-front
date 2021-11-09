@@ -4,6 +4,7 @@ export class Transaction {
   public toAccountId: number;
   public amount: number;
   public descriptions: string;
+  
    
     constructor(
         type: string,

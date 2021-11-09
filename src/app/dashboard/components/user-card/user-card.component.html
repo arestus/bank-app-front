@@ -1,80 +1,36 @@
-<div user-card-container>
-<mat-card>
-  <mat-card-title>User </mat-card-title>
-  <mat-card-subtitle>User information</mat-card-subtitle>
-  <mat-list>
-    <mat-divider></mat-divider>
-    <mat-list-item>customerID: {{ state?.customerID }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>name: {{ state?.name }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>email: {{ state?.email }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>address: {{ state?.address }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>phone: {{ state?.phone }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>paNnumber: {{ state?.paNnumber }} </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>aadhaarnumber: {{ state?.aadhaarnumber }} </mat-list-item>
-    <mat-divider></mat-divider>
-  </mat-list>
-  <mat-card-actions>
-    <button  mat-raised-button color="primary" routerLink="/admin/user-list">Back</button>
-    <!-- <button  mat-raised-button color="primary" (click)="navigate(state?.customerID )" >Transaction info</button> -->
-  </mat-card-actions>
-
-  
-</mat-card>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="transactionId">
-    <th mat-header-cell *matHeaderCellDef> transactionId </th>
-    <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="transactionDate">
-    <th mat-header-cell *matHeaderCellDef> transactionDate </th>
-    <td mat-cell *matCellDef="let element"> {{element.transactionDate}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="transactionType">
-    <th mat-header-cell *matHeaderCellDef> transactionType </th>
-    <td mat-cell *matCellDef="let element"> {{element.transactionType}} </td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="fromAccount">
-    <th mat-header-cell *matHeaderCellDef> fromAccount </th>
-    <td mat-cell *matCellDef="let element"> {{element.fromAccount}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="toAccount">
-    <th mat-header-cell *matHeaderCellDef> toAccount </th>
-    <td mat-cell *matCellDef="let element"> {{element.toAccount}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef> amount </th>
-    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="transactionStatus">
-    <th mat-header-cell *matHeaderCellDef> transactionStatus </th>
-    <td mat-cell *matCellDef="let element"> {{element.transactionStatus}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="user-card-container">
+  <mat-card>
+    <mat-card-title>User </mat-card-title>
+    <mat-card-subtitle>User information</mat-card-subtitle>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>customerID: {{ state?.customerID }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>name: {{ state?.name }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>email: {{ state?.email }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>address: {{ state?.address }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>phone: {{ state?.phone }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>paNnumber: {{ state?.paNnumber }} </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>aadhaarnumber: {{ state?.aadhaarnumber }} </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/admin/user-list">
+        Back
+      </button>
+      <!-- <button  mat-raised-button color="primary" (click)="navigate(state?.customerID )" >Transaction info</button> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="user-card-container">
+  <app-transaction-history></app-transaction-history>
 </div>
