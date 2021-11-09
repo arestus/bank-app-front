@@ -5,7 +5,29 @@
 .transa-history form{
   width: 100%;
 }
- mat-table{
+ table{
   width: 100%;
 }
 
+th,td{
+  text-align: center;
+}
+
+button{
+  margin-left: 150px ;
+}
+
+.picker2{
+  margin-left: 20px;
+}
+
+
+
+.mat-header-cell {
+  background: #4172f5aa;
+  font-size: 14px;
+}
+
+.mat-row:hover {
+  background-color: #ADE5F9;
+}

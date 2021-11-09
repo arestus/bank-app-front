@@ -1,9 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
 import { TableService } from 'src/app/services/table.service';
 
 @Component({
@@ -12,18 +8,19 @@ import { TableService } from 'src/app/services/table.service';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
-  state: any;
-  id: number;
+  // state: any;
+  // id: number;
 
 
   
   constructor(private router: Router,
      public tableService: TableService) {
 
-    const navigation = this.router.getCurrentNavigation();
-    this.state = navigation?.extras.state;
-    this.id = navigation?.extras.state?.customerID;
-   
+    // const navigation = this.router.getCurrentNavigation();
+    // this.state = navigation?.extras.state;
+    // this.id = navigation?.extras.state?.customerID;
+    //   console.log(this.tableService.state,'state-table');
+      
   }
 
   ngOnInit(): void {
