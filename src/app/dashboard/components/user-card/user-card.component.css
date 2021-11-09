@@ -12,21 +12,15 @@ mat-card-actions{
 }
 
 
+
+
+
 .user-card-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
-}
-
-
-
-/* .user-card-container{
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-} */
+  align-items: flex-start;
+}
 
 
 img {
@@ -56,7 +50,7 @@ ul {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .5);
   
-  min-width: 500px;
+  width: 500px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .15);
   margin: 1rem;
   position: relative;

@@ -9,7 +9,7 @@ import { TransactionHistory } from '../models/transactionHistory';
 })
 export class TableService {
   dataSource!: TransactionHistory[];
-
+  state: any;
   constructor() { }
 
   getAll(id: string) {

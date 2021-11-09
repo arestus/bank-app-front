@@ -12,7 +12,7 @@
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="picker2">
       <input
         matInput
         placeholder="toDate"
@@ -33,66 +33,57 @@
     >
       Submit
     </button>
-    <button
-      mat-raised-button
-      color="accent"
-      type="button"
-      [disabled]="form.invalid"
-    >
-      Clear
-    </button>
   </form>
+  
 
-  <table
-    mat-table
-    [dataSource]="tableService.dataSource"
-    matSort
-    matSortActive="date"
-    matSortDirection="desc"
-    class="table-transa"
-  >
+  <table mat-table [dataSource]="tableService.dataSource" class="mat-elevation-z8">
+
+    
     <ng-container matColumnDef="transactionId">
-      <th mat-header-cell *matHeaderCellDef>Id</th>
-      <td mat-cell *matCellDef="let element">{{ element.transactionId }}</td>
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
     </ng-container>
-
+  
+    <!-- Name Column -->
     <ng-container matColumnDef="transactionDate">
-      <th mat-header-cell *matHeaderCellDef>Date</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.transactionDate | date: "dd/MM/yyyy" }}
-      </td>
+      <th mat-header-cell *matHeaderCellDef>Transaction Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionDate | date: "dd/MM/yyyy"}} </td>
     </ng-container>
-
+  
+    <!-- Weight Column -->
     <ng-container matColumnDef="transactionType">
-      <th mat-header-cell *matHeaderCellDef>Type</th>
-      <td mat-cell *matCellDef="let element">{{ element.transactionType }}</td>
+      <th mat-header-cell *matHeaderCellDef>Transaction Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionType}} </td>
     </ng-container>
-
+  
+    <!-- Symbol Column -->
     <ng-container matColumnDef="fromAccount">
-      <th mat-header-cell *matHeaderCellDef>from customer id</th>
-      <td mat-cell *matCellDef="let element">{{ element.fromAccount }}</td>
+      <th mat-header-cell *matHeaderCellDef> From Account </th>
+      <td mat-cell *matCellDef="let element"> {{element.fromAccount}} </td>
     </ng-container>
 
     <ng-container matColumnDef="toAccount">
-      <th mat-header-cell *matHeaderCellDef>to customer id</th>
-      <td mat-cell *matCellDef="let element">{{ element.toAccount }}</td>
+      <th mat-header-cell *matHeaderCellDef> To Account </th>
+      <td mat-cell *matCellDef="let element"> {{element.toAccount}} </td>
     </ng-container>
 
     <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef>amount</th>
-      <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
     </ng-container>
 
     <ng-container matColumnDef="transactionStatus">
-      <th mat-header-cell *matHeaderCellDef>transactionStatus</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.transactionStatus }}
-      </td>
+      <th mat-header-cell *matHeaderCellDef> Tr. Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionStatus}} </td>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+
   <mat-paginator
     [pageSizeOptions]="[5, 10, 25, 100]"
     aria-label="Select page of users"

@@ -6,8 +6,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
-import { environment } from 'src/environments/environment';
-import axios from 'axios';
 import { TableService } from 'src/app/services/table.service';
 
 @Component({
@@ -41,12 +39,7 @@ export class TransactionHistoryComponent implements OnInit {
   }
 
   applyDateFilter() {
-    //console.log(this.form);
-    // this.refreshTransactions();
     this.tableService.dataSource = this.tableService.dataSource.filter(e => 
-      // console.log(e.transactionDate, 'e.transactionDate');
-      // console.log(this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, ""), 'this.form.value.fromDate');
-      // console.log(this.form.value.toDate.toISOString().replace(/.\d+Z$/g, ""), 'this.form.value.toDate');
       e.transactionDate >= this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, "") && e.transactionDate <= this.form.value.toDate.toISOString().replace(/.\d+Z$/g, "")
     );
     console.log(this.tableService.dataSource, 'this.tableService.dataSource');
