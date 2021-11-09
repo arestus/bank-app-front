@@ -31,3 +31,6 @@
 .example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
+.errorMsg{
+  margin-top: 20px;
+}
