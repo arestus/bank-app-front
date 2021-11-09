@@ -1,11 +1,17 @@
 mat-card{
-  width: 40%;
+  width: 30%;
   margin-left: 50px;
 }
 
 mat-card-actions{
   padding: 20px ;
 }
+
+.table-transa{
+  margin-left: 20px;
+  width: 40%;
+}
+
 
 .user-card-container{
   display: flex;
