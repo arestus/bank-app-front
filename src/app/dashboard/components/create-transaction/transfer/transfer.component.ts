@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
-import { Transaction } from 'src/app/models/transaction';
+import { TransactionTransfer } from 'src/app/models/transactionTransfer';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TransferComponent implements OnInit {
 
-  transaction!: Transaction;
+  transaction!: TransactionTransfer;
 
   currentAmount:number = 100;
   transferForm = new FormGroup({
@@ -42,10 +42,10 @@ export class TransferComponent implements OnInit {
     const to = this.transferForm.get('to')!.value;
     const amount = this.transferForm.get('amount')!.value;
     const description = this.transferForm.get('desc')!.value;
-    const currentTransaction = new Transaction(type, from, to, amount, description)
+    const currentTransaction = new TransactionTransfer(type, from, to, amount, description)
 
-    this.transactionService.setNewTransaction(currentTransaction);
-    this.router.navigate(["admin/confirmation"]);
+    this.transactionService.setNewTransactionTransfer(currentTransaction);
+    this.router.navigate(["customer/confirmation"]);
   }
 
 

@@ -36,14 +36,16 @@ export class DepositComponent implements OnInit {
 
   onFormSubmit(){
     const type = "deposit";
-    const from = 0;
-    const to = this.depositForm.get('to')!.value;
+    const account = this.depositForm.get('to')!.value;
+    const accountId = Number(account);
     const amount = this.depositForm.get('amount')!.value;
-    const description = this.depositForm.get('desc')!.value;
-    const currentTransaction = new Transaction(type, from, to, amount, description)
+    const descriptions = this.depositForm.get('desc')!.value;
+    
+    const currentTransaction = new Transaction(type, accountId, amount, descriptions)
 
     this.transactionService.setNewTransaction(currentTransaction);
-    this.router.navigate(["admin/confirmation"]);
+    
+    this.router.navigate(["customer/confirmation"]);
   }
 
   reset = () => {
