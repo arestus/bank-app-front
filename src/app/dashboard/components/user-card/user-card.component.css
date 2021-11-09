@@ -1,16 +1,25 @@
-mat-card{
-  width: 40%;
-  margin-left: 50px;
+mat-card {
+  width: 60%;
+  /* margin-left: 50px; */
 }
 
 mat-card-actions{
   padding: 20px ;
 }
 
+.table-transa{
+  width: 40%;
+}
+
+
 .user-card-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
  
 }
+
+
 
 /* .user-card-container{
   height: 100vh;

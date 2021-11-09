@@ -14,7 +14,7 @@ export class UserlistService {
 
   formDate : UserModel = new UserModel();
 
-  list!: UserModel[];
+  // list!: UserModel[];
 
   constructor(private http: HttpClient) { }
 
