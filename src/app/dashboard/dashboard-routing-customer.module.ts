@@ -4,6 +4,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { WrapperComponentUser } from './components/wrapper-user/wrapper-user.component';
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
+import { ConfirmationResultComponent } from './components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'confirmation',
         component: ConfirmationPageComponent,
+      },
+      {
+        path: 'confirmation-result',
+        component: ConfirmationResultComponent,
       },
     ],
   },

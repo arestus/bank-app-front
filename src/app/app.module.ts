@@ -54,6 +54,7 @@ import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit
 import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
 import { UserCardComponent } from './dashboard/components/user-card/user-card.component';
 import { TransactionHistoryComponent } from './dashboard/components/transaction-history/transaction-history.component';
+import { ConfirmationResultComponent } from './dashboard/components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
 
 
 
@@ -71,6 +72,7 @@ import { TransactionHistoryComponent } from './dashboard/components/transaction-
     EditUserComponent,
     CreateTransactionComponent,
     ConfirmationPageComponent,
+    ConfirmationResultComponent,
     TransferComponent,
     DepositComponent,
     WithdrawComponent,

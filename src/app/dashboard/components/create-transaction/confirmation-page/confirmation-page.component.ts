@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { ConfirmationService } from 'src/app/services/transactions/confirmation.service';
 import { TransactionTransfer } from 'src/app/models/transactionTransfer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmation-page',
@@ -15,7 +16,8 @@ export class ConfirmationPageComponent implements OnInit {
 
   constructor(
     private transactionService: TransactionService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private router: Router
   ) { }
 
   ngOnInit():void {
@@ -44,5 +46,6 @@ export class ConfirmationPageComponent implements OnInit {
       this.confirmationService.transferTransaction(this.currentTransaction).subscribe((transData) => {
         console.log(transData);
       });
+      this.router.navigate(["customer/confirmation-result"]);
   }
 }
