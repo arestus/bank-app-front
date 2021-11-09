@@ -21,7 +21,7 @@ export class UserlistService {
   getAll() {
       let users = axios.get(environment.apiURL + '/Customer')
     //   this.http.get<UserModel[]>(environment.apiURL + '/Users').toPromise();
-      console.log(users, 'userservice')
+      // console.log(users, 'userservice')
     return users
 }
 

@@ -6,11 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { UserlistService } from './services/userlist.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,11 +45,14 @@ import { DepositComponent } from './dashboard/components/create-transaction/depo
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
 
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit-user.component';
 
 
 import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
+import { UserCardComponent } from './dashboard/components/user-card/user-card.component';
+import { TransactionHistoryComponent } from './dashboard/components/transaction-history/transaction-history.component';
+
 
 
 
@@ -69,7 +72,8 @@ import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrappe
     TransferComponent,
     DepositComponent,
     WithdrawComponent,
-  
+    UserCardComponent,
+    TransactionHistoryComponent,
   ],
   imports: [MatMenuModule,
     BrowserModule,

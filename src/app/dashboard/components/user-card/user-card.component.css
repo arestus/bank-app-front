@@ -1,0 +1,20 @@
+mat-card{
+  width: 40%;
+  margin-left: 50px;
+}
+
+mat-card-actions{
+  padding: 20px ;
+}
+
+.user-card-container{
+  display: flex;
+ 
+}
+
+/* .user-card-container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */

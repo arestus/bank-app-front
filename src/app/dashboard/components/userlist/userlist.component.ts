@@ -7,6 +7,7 @@ import { CreateUserComponent } from '../dialogs/create-user/create-user.componen
 import { UserlistService } from 'src/app/services/userlist.service';
 import { UserModel } from 'src/app/models/user-model';
 import { EditUserComponent } from '../dialogs/edit-user/edit-user.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { EditUserComponent } from '../dialogs/edit-user/edit-user.component';
 
 
 export class UserlistComponent implements OnInit {
-  displayedColumns: string[] = ['Id','fullname', 'dateOfBirth', 'email', 'address', 'phoneNumber', 'aadhaarnumber','actions'];
+  displayedColumns: string[] = ['Id', 'fullname', 'dateOfBirth', 'email', 'address', 'phoneNumber', 'aadhaarnumber', 'actions'];
   users!: UserModel[];
   dataSource!: MatTableDataSource<UserModel>;
 
@@ -26,7 +27,8 @@ export class UserlistComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog,
-    public service: UserlistService) {
+    public service: UserlistService,
+    public router: Router) {
 
 
   }
@@ -65,7 +67,7 @@ export class UserlistComponent implements OnInit {
     this.dialog.open(CreateUserComponent, dialogConfig);
   }
 
-  startEdit(index:any, item:any) {
+  startEdit(index: any, item: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
@@ -74,8 +76,12 @@ export class UserlistComponent implements OnInit {
     this.dialog.open(EditUserComponent, dialogConfig);
   }
 
-  deleteItem(id: string){
+  deleteItem(id: string) {
 
+  }
+
+  navigate(id: number, item: any) {
+    this.router.navigate([`admin/user-customer/${id}`],{state:item});
   }
 
 
