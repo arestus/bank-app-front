@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
-import { DatePipe } from '@angular/common';
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { Router } from '@angular/router';
@@ -13,7 +12,6 @@ import { Router } from '@angular/router';
 export class WithdrawComponent implements OnInit {
 
   transaction!: Transaction;
-  //currentDate!: string;
 
   withdrawForm = new FormGroup({
     from: new FormControl('', Validators.required),
@@ -32,27 +30,23 @@ export class WithdrawComponent implements OnInit {
   }
 
   constructor(
-    private router: Router, private transactionService: TransactionService, private datePipe: DatePipe) {
-    const date = new Date();
-    console.log("==========================================")
-    console.log(this.datePipe.transform(date,"yyyy-MM-dd"));
+    private router: Router, private transactionService: TransactionService) {
    }
 
   ngOnInit(): void {
   }
 
   onFormSubmit() {
-    const date = new Date();
-    const type = "withdraw";
-    // const transactionDate = this.datePipe.transform(date,"yyyy-MM-dd")!.toString();
+    const type = "Withdraw";
     const account = this.withdrawForm.get('from')!.value;
     const accountId = Number(account)
-    console.log(accountId)
     const amount = this.withdrawForm.get('amount')!.value;
     const descriptions = this.withdrawForm.get('desc')!.value;
+    
     const currentTransaction = new Transaction(type, accountId, amount, descriptions)
 
     this.transactionService.setNewTransaction(currentTransaction);
+    
     this.router.navigate(["customer/confirmation"]);
   }
 

@@ -37,7 +37,7 @@ export class TransferComponent implements OnInit {
   constructor(private router: Router, private transactionService: TransactionService) {}
 
   onFormSubmit(){
-    const type = "transfer";
+    const type = "Transfer";
     const from = this.transferForm.get('from')!.value;
     const to = this.transferForm.get('to')!.value;
     const amount = this.transferForm.get('amount')!.value;

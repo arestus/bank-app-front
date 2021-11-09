@@ -22,21 +22,27 @@ export class ConfirmationPageComponent implements OnInit {
     this.currentTransaction = this.transactionService.currentTransaction;
   }
 
+  // confirmTransaction() {
+  //   if (this.currentTransaction.type === "Transfer") {
+  //     this.confirmationService.transferTransaction(this.currentTransaction).subscribe((transData) => {
+  //       console.log(transData);
+  //     });
+  //   } else if (this.currentTransaction.type === "Deposit") {
+  //     this.confirmationService.depositTransaction(this.currentTransaction).subscribe((transData) => {
+  //       console.log(transData);
+  //     });
+  //   } else if (this.currentTransaction.type === "Withdraw") {
+  //     this.confirmationService.withdrawTransaction(this.currentTransaction).subscribe((transData) => {
+  //       console.log(transData);
+  //     }, err => {
+  //       console.log(err)
+  //     });
+  //   }
+  // }
+
   confirmTransaction() {
-    if (this.currentTransaction.type === "transfer") {
       this.confirmationService.transferTransaction(this.currentTransaction).subscribe((transData) => {
         console.log(transData);
       });
-    } else if (this.currentTransaction.type === "deposit") {
-      this.confirmationService.depositTransaction(this.currentTransaction).subscribe((transData) => {
-        console.log(transData);
-      });
-    } else if (this.currentTransaction.type === "withdraw") {
-      this.confirmationService.withdrawTransaction(this.currentTransaction).subscribe((transData) => {
-        console.log(transData);
-      }, err => {
-        console.log(err)
-      });
-    }
   }
 }
