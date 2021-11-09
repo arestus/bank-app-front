@@ -10,22 +10,29 @@
         >
       </mat-list-item>
 
-      <!-- <mat-list-item [routerLink]="'create-user'">
+       <mat-list-item [routerLink]="'user-account'">
         <mat-icon mat-list-icon class="">person_add</mat-icon>
-        <span *ngIf="isExpanded">Create new user</span>
-      </mat-list-item> -->
+      <span *ngIf="isExpanded">Create new user</span>
+      </mat-list-item> 
 
+  
       <mat-list-item [routerLink]="'history'">
         <mat-icon mat-list-icon class="">payment</mat-icon>
         <span *ngIf="isExpanded">Payment</span>
       </mat-list-item>
+     
 
       <mat-list-item [routerLink]="'create-transaction'">
         <mat-icon mat-list-icon class="">create</mat-icon>
         <span *ngIf="isExpanded">Transaction</span>
       </mat-list-item>
+      
+      <mat-list-item [routerLink]="'user-profile'">
+        <mat-icon mat-list-icon class="">person_info</mat-icon>
+        <span *ngIf="isExpanded">Create new user</span>
+      </mat-list-item>
     </mat-nav-list>
-  </mat-sidenav>
+    </mat-sidenav>
   <div class="content">
     <!-- <mat-toolbar>
       <h4>Hello everyone</h4>

@@ -52,6 +52,8 @@ import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit
 import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
 import { UserCardComponent } from './dashboard/components/user-card/user-card.component';
 import { TransactionHistoryComponent } from './dashboard/components/transaction-history/transaction-history.component';
+import { UserAccountComponent } from './dashboard/components/user-account/user-account.component';
+import { UserProfileComponent } from './dashboard/components/user-profile/user-profile.component';
 
 
 
@@ -74,6 +76,8 @@ import { TransactionHistoryComponent } from './dashboard/components/transaction-
     WithdrawComponent,
     UserCardComponent,
     TransactionHistoryComponent,
+    UserAccountComponent,
+    UserProfileComponent,
   ],
   imports: [MatMenuModule,
     BrowserModule,
