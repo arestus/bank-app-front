@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateUserComponent } from './components/dialogs/create-user/create-user.component';
 import { HistoryComponent } from './components/history/history.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 
@@ -28,6 +30,13 @@ const routes: Routes = [
         path: 'payment',
         component: PaymentComponent,
       },
+      {
+        path: 'user-customer/:id',
+        component: UserCardComponent
+      },{
+        path: 'transaction-history/:id',
+        component: TransactionHistoryComponent
+      }
     ],
   },
 ];
@@ -36,4 +45,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardRoutingModule {}
+export class DashboardRoutingModule { }
