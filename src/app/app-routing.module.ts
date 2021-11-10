@@ -23,12 +23,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard-customer.module').then((m) => m.DashboardCustomerModule),
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
-  // { path: '', redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
-  // { path: '**', redirectTo: redirection(false) }, // Wildcard route for a 404 page
+
 ];
 
 @NgModule({

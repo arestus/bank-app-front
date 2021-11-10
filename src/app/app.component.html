@@ -1,6 +1,6 @@
 <!-- <app-login></app-login> -->
 
-<mat-toolbar>
+<mat-toolbar class="tollbar-color">
   <button
     mat-icon-button
     class="button"
@@ -20,7 +20,7 @@
 
   <div *ngIf="ShowName()">
     <div class="letters">
-      {{accountText}} : available  balance: <mat-icon> currency_rupee </mat-icon>{{ balance }}    | <button
+      {{accountText}} <mat-icon> {{currency}} </mat-icon>{{ balance }}    | <button
      mat-button
      
       class=" letters"

@@ -24,6 +24,7 @@ mat-list-item span {
 .letters {
   font-family: "Roboto", sans-serif;
   font-size: 30px;
+  color: #ffffff;
 }
 .letters-bank {
   font-family: "Roboto", sans-serif;
@@ -53,7 +54,7 @@ mat-list-item span {
 }
 .button {
   height: 80px;
-  background-color: #23036a;
+  /* background-color: #3f51b5; */
   border-radius: 0;
   width: 120px;
 }
@@ -68,4 +69,7 @@ mat-list-item span {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.tollbar-color{
+  background-color: #3f51b5;
 }

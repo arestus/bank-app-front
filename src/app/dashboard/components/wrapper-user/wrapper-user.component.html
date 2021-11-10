@@ -29,16 +29,12 @@
       </mat-list-item>
       
       <mat-list-item [routerLink]="'user-profile'">
-        <mat-icon mat-list-icon class="">person_info</mat-icon>
-        <span *ngIf="isExpanded">Create new user</span>
+        <mat-icon mat-list-icon class="">person</mat-icon>
+        <span *ngIf="isExpanded">User info</span>
       </mat-list-item>
     </mat-nav-list>
     </mat-sidenav>
   <div class="content">
-    <!-- <mat-toolbar>
-      <h4>Hello everyone</h4>
-    </mat-toolbar> -->
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
-<!-- /* some comment */ -->

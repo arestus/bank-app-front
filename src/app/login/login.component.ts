@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
                 });
                 let userData1 = JSON.stringify(user);
                 localStorage.setItem('induk-bank-user', userData1);
-                this.router.navigate(['customer']);
+                this.router.navigate(['customer/user-account']);
               });
           });
       }, err => {
@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
         employee.role = role;
         let employeeData = JSON.stringify(employee);
                 localStorage.setItem('induk-bank-user', employeeData);
-        this.router.navigate(['admin']);
+        this.router.navigate(['admin/user-list']);
       }, err => {
         if (err.error === "Invalid User") {
           this.errorTest= true
