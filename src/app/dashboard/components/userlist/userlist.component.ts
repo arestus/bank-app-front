@@ -43,13 +43,11 @@ export class UserlistComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-
   }
 
 
-
   refreshList() {
-    this.service.getAll().then(res => { console.log(res.data, "resdata"), this.users = res.data; });
+    this.service.getAll().then(res =>  this.users = res.data );
   }
 
   applyFilter(event: Event) {
@@ -83,7 +81,10 @@ export class UserlistComponent implements OnInit {
   }
 
   navigate(id: number, item: any) {
-    this.router.navigate([`admin/user-customer/${id}`],{state:item});
+    this.tableService.state = item;
+    this.router.navigate([`admin/user-customer/${id}`]
+    // ,{state:item}
+    );
     this.tableService.getAll(String(id));
   }
 

@@ -1,36 +1,34 @@
 <div class="user-card-container">
-  <mat-card>
-    <mat-card-title>User </mat-card-title>
-    <mat-card-subtitle>User information</mat-card-subtitle>
-    <mat-list>
-      <mat-divider></mat-divider>
-      <mat-list-item>customerID: {{ state?.customerID }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>name: {{ state?.name }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>email: {{ state?.email }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>dateOfBirth: {{ state?.dateOfBirth }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>address: {{ state?.address }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>phone: {{ state?.phone }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>paNnumber: {{ state?.paNnumber }} </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>aadhaarnumber: {{ state?.aadhaarnumber }} </mat-list-item>
-      <mat-divider></mat-divider>
-    </mat-list>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="/admin/user-list">
-        Back
-      </button>
-      <!-- <button  mat-raised-button color="primary" (click)="navigate(state?.customerID )" >Transaction info</button> -->
-    </mat-card-actions>
-  </mat-card>
-</div>
-<div class="user-card-container">
+
+  <div class="card">
+    <div class="img">
+      <img src="../../../../assets/PeTurkey.png" />
+    </div>
+    <div class="infos">
+      <div class="name">
+        <h2>{{ tableService.state?.name }}</h2>
+        <h4><span>ID:</span> {{ tableService.state?.customerID }}</h4>
+      </div>
+      <p class="text"><span>Date Of Birth:</span> {{ tableService.state?.dateOfBirth }}</p>
+      <p class="text"><span>Email adress:</span> {{ tableService.state?.email }}</p>
+      
+      <p class="text"><span>Home address:</span> {{ tableService.state?.address }}</p>
+
+      <p class="text"><span>Phone number:</span> {{ tableService.state?.phone }}</p>
+
+      <p class="text"><span>paNnumber:</span> {{ tableService.state?.paNnumber }}</p>
+
+      <p class="text"><span>aadhaarnumber:</span> {{ tableService.state?.aadhaarnumber }}</p>
+
+      <div class="links">
+        <button class="follow" routerLink="/admin/user-list">Back</button>
+        <!-- <button class="view">View profile</button> -->
+      </div>
+    </div>
+  </div>
   <app-transaction-history></app-transaction-history>
+</div>
+
+<div >
+  
 </div>
