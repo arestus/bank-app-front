@@ -29,21 +29,25 @@ export class WithdrawComponent implements OnInit {
     return this.withdrawForm.get('desc');
   }
 
-  constructor(private router: Router, private transactionService: TransactionService) { }
+  constructor(
+    private router: Router, private transactionService: TransactionService) {
+   }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit(){
-    const type = "withdraw";
-    const to = 0;
-    const from = this.withdrawForm.get('from')!.value;
+  onFormSubmit() {
+    const type = "Withdraw";
+    const account = this.withdrawForm.get('from')!.value;
+    const accountId = Number(account)
     const amount = this.withdrawForm.get('amount')!.value;
-    const description = this.withdrawForm.get('desc')!.value;
-    const currentTransaction = new Transaction(type, from, to, amount, description)
+    const descriptions = this.withdrawForm.get('desc')!.value;
+    
+    const currentTransaction = new Transaction(type, accountId, amount, descriptions)
 
     this.transactionService.setNewTransaction(currentTransaction);
-    this.router.navigate(["admin/confirmation"]);
+    
+    this.router.navigate(["customer/confirmation"]);
   }
 
   reset = () => {

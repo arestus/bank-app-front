@@ -1,15 +1,16 @@
 <mat-sidenav-container autosize>
+    
   <mat-sidenav #sidenav mode="side" opened="true">
-    <mat-nav-list>
-      <mat-list-item (click)="isExpanded = !isExpanded">
-        <mat-icon
-          mat-list-icon
-          class="chevron-button sidenav-button"
-          [ngClass]="{ rotated: isExpanded }"
-          >chevron_right</mat-icon
-        >
-      </mat-list-item>
-
+      
+      <mat-nav-list>
+      
+        <mat-list-item (click)="isExpanded = !isExpanded">
+          <mat-icon
+            mat-list-icon
+            class="chevron-button sidenav-button"
+            [ngClass]="{ rotated: isExpanded }"
+            >chevron_right</mat-icon>
+        </mat-list-item>
        <mat-list-item [routerLink]="'user-account'">
         <mat-icon mat-list-icon class="">person_add</mat-icon>
       <span *ngIf="isExpanded">Create new user</span>

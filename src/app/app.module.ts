@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import {DatePipe} from '@angular/common';
 
 
 import { UserlistService } from './services/userlist.service';
@@ -52,8 +54,10 @@ import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit
 import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrapper-user.component';
 import { UserCardComponent } from './dashboard/components/user-card/user-card.component';
 import { TransactionHistoryComponent } from './dashboard/components/transaction-history/transaction-history.component';
+import { ConfirmationResultComponent } from './dashboard/components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
 import { UserAccountComponent } from './dashboard/components/user-account/user-account.component';
 import { UserProfileComponent } from './dashboard/components/user-profile/user-profile.component';
+
 
 
 
@@ -71,6 +75,7 @@ import { UserProfileComponent } from './dashboard/components/user-profile/user-p
     EditUserComponent,
     CreateTransactionComponent,
     ConfirmationPageComponent,
+    ConfirmationResultComponent,
     TransferComponent,
     DepositComponent,
     WithdrawComponent,
@@ -109,7 +114,7 @@ import { UserProfileComponent } from './dashboard/components/user-profile/user-p
   ],
   exports: [MatToolbarModule, MatTableModule, MatDialogModule],
   providers: [UserlistService,
-    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },DatePipe
   ],
   bootstrap: [AppComponent]
 })

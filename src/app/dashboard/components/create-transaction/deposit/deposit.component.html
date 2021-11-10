@@ -3,8 +3,8 @@
     <mat-form-field appearance="fill">
         <mat-label>To account</mat-label>
         <mat-select formControlName="to">
-            <mat-option value="Account #1">First account</mat-option>
-            <mat-option value="Account #2">Second account</mat-option>
+            <mat-option value={{currentAcc}}>Current account: {{currentAccBal}}</mat-option>
+            <mat-option value={{savingAcc}}>Saving account: {{savingAccBal}}</mat-option>
         </mat-select>
         <mat-error *ngIf="this.depositForm.controls.to.hasError('required')" [ngClass]="'error'">Choose your account!
         </mat-error>
