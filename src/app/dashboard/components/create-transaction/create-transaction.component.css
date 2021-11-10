@@ -1,7 +1,16 @@
 .container {
   padding: 20px;
+  margin: auto 0;
 }
-.tabs-list {
+.mat-nav-list {
   margin: auto;
   width: 70%;
+}
+
+.transaction-navigation-list {
+  display: flex;
+  width: 70%;
+}
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
+  justify-content: center;
 }
