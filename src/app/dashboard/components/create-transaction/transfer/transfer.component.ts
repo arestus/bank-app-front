@@ -13,6 +13,15 @@ export class TransferComponent implements OnInit {
 
   transaction!: TransactionTransfer;
 
+  currentAcc = 0;
+  savingAcc = 0;
+  
+  currentAccBal = 0;
+  savingAccBal = 0;
+
+  defaultValue = 0;
+  selectedValue = 0;
+
   currentAmount:number = 100;
   transferForm = new FormGroup({
     to: new FormControl('', Validators.required),
@@ -50,6 +59,14 @@ export class TransferComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if (localStorage.getItem('induk-bank-user')) {
+      let storage = localStorage.getItem('induk-bank-user');
+      let parsedStorage = JSON.parse(storage as string);
+      this.currentAcc = parsedStorage.currentAccount;
+      this.savingAcc = parsedStorage.savingAccount;
+      this.savingAccBal = parsedStorage.savingBalance;
+      this.currentAccBal = parsedStorage.currentBalance;
+    }
   }
 
   reset = () => {
