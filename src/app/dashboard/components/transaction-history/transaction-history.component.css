@@ -24,8 +24,9 @@ button{
 
 
 .mat-header-cell {
-  background: #4172f5aa;
+  background: #3f51b5;
   font-size: 14px;
+  color: #ffffff;
 }
 
 .mat-row:hover {
