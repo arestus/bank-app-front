@@ -33,8 +33,8 @@ export class CreateUserComponent implements OnInit {
         phone: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
         email: new FormControl("", [Validators.required,
         Validators.email]),
-        aadhaarnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/)),
-        paNnumber: new FormControl("",Validators.pattern(/^-?(0|[1-9]\d*)?$/))
+        aadhaarnumber: new FormControl(""),
+        paNnumber: new FormControl("")
         ,
       });
    

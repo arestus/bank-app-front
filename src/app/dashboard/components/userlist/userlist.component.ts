@@ -37,7 +37,7 @@ export class UserlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAll().then(res => {
-      this.users = res.data;
+      this.users = res
 
       this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.paginator = this.paginator;
@@ -47,7 +47,7 @@ export class UserlistComponent implements OnInit {
 
 
   refreshList() {
-    this.service.getAll().then(res =>  this.users = res.data );
+    this.service.getAll().then(res =>  this.users = res);
   }
 
   applyFilter(event: Event) {
@@ -74,19 +74,32 @@ export class UserlistComponent implements OnInit {
     dialogConfig.width = "50%";
     dialogConfig.data = { index, item };
     this.dialog.open(EditUserComponent, dialogConfig);
+    this.refreshList();
   }
 
   deleteItem(id: string) {
-
+    this.service.delete(id);
+    this.refreshList();
   }
 
-  navigate(id: number, item: any) {
-    this.tableService.state = item;
+  navigate(id: number) {
+    // this.tableService.state = item;
+    
     this.router.navigate([`admin/user-customer/${id}`]
-    // ,{state:item}
+    ,{queryParams:{id}}
     );
     this.tableService.getAll(String(id));
   }
+
+  // navigateToItem(id: number) {
+
+    
+  //   this.service.getById(String(id)).then(res=> this.tableService.state = res)
+  //   this.router.navigate([`admin/user-customer/${id}`]
+  //   // ,{state:item}
+  //   );
+  //   this.tableService.getAll(String(id));
+  // }
 
 
 }

@@ -19,8 +19,9 @@ export class UserlistService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-      let users = axios.get(environment.apiURL + '/Customer')
-    //   this.http.get<UserModel[]>(environment.apiURL + '/Users').toPromise();
+      let users = 
+      // axios.get(environment.apiURL + '/Customer')
+      this.http.get<UserModel[]>(environment.apiURL + '/Customer').toPromise();
       // console.log(users, 'userservice')
     return users
 }

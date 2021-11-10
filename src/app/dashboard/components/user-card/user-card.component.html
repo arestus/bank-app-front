@@ -6,19 +6,19 @@
     </div>
     <div class="infos">
       <div class="name">
-        <h2>{{ tableService.state?.name }}</h2>
-        <h4><span>ID:</span> {{ tableService.state?.customerID }}</h4>
+        <h2>{{ state?.name }}</h2>
+        <h4><span>ID:</span> {{ state?.customerID }}</h4>
       </div>
-      <p class="text"><span>Date Of Birth:</span> {{ tableService.state?.dateOfBirth }}</p>
-      <p class="text"><span>Email adress:</span> {{ tableService.state?.email }}</p>
+      <p class="text"><span>Date Of Birth:</span> {{ state?.dateOfBirth }}</p>
+      <p class="text"><span>Email adress:</span> {{ state?.email }}</p>
       
-      <p class="text"><span>Home address:</span> {{ tableService.state?.address }}</p>
+      <p class="text"><span>Home address:</span> {{ state?.address }}</p>
 
-      <p class="text"><span>Phone number:</span> {{ tableService.state?.phone }}</p>
+      <p class="text"><span>Phone number:</span> {{ state?.phone }}</p>
 
-      <p class="text"><span>paNnumber:</span> {{ tableService.state?.paNnumber }}</p>
+      <p class="text"><span>paNnumber:</span> {{ state?.paNnumber }}</p>
 
-      <p class="text"><span>aadhaarnumber:</span> {{ tableService.state?.aadhaarnumber }}</p>
+      <p class="text"><span>aadhaarnumber:</span> {{ state?.aadhaarnumber }}</p>
 
       <div class="links">
         <button class="follow" routerLink="/admin/user-list">Back</button>

@@ -33,9 +33,13 @@ const routes: Routes = [
       {
         path: 'user-customer/:id',
         component: UserCardComponent
-      },{
+      },
+      {
         path: 'transaction-history/:id',
         component: TransactionHistoryComponent
+      },{
+        path: '**',
+        component: UserlistComponent
       }
     ],
   },
