@@ -1,1 +1,23 @@
-<p>user-account works!</p>
+<div *ngIf="ShowBalance()">
+<mat-card>
+    <mat-card-title >Current Account</mat-card-title>
+    <mat-card-subtitle>Account Number: </mat-card-subtitle>
+    <p> <mat-icon> currency_rupee </mat-icon> {{ currentBalance }}</p>
+    <mat-card-actions> 
+      <button mat-raised-button color="primary">Deposit</button> <!--need to add navigation to these buttons-->
+      <button mat-raised-button color="primary">Withdraw</button>
+      <button mat-raised-button color="primary">Transfer</button>
+    </mat-card-actions>
+  </mat-card>  
+  <br>
+  <mat-card>
+    <mat-card-title>Savings Account</mat-card-title>
+    <mat-card-subtitle>Account Number</mat-card-subtitle>
+    <p> <mat-icon> currency_rupee </mat-icon> {{ savingBalance }}</p>
+    <mat-card-actions>
+        <button mat-raised-button color="primary">Deposit</button>
+        <button mat-raised-button color="primary">Withdraw</button>
+        <button mat-raised-button color="primary">Transfer</button>
+    </mat-card-actions>
+  </mat-card>
+ </div>
