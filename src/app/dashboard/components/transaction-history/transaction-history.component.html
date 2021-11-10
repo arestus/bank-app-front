@@ -33,59 +33,75 @@
     >
       Submit
     </button>
+    <div class="btn-class">
+
+      <button class="button-form" mat-raised-button (click)="openPDF()">
+        Open PDF
+      </button>
+      <br /><br />
+      <button class="button-form" mat-raised-button  (click)="downloadPDF()">
+        Download PDF
+      </button>
+    </div>
   </form>
-  
+  <div class="col-md-8" id="htmlData" #htmlData>
+    <table
+      mat-table
+      [dataSource]="tableService.dataSource"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="transactionId">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.transactionId }}</td>
+      </ng-container>
 
-  <table mat-table [dataSource]="tableService.dataSource" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="transactionDate">
+        <th mat-header-cell *matHeaderCellDef>Transaction Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.transactionDate | date: "dd/MM/yyyy" }}
+        </td>
+      </ng-container>
 
-    
-    <ng-container matColumnDef="transactionId">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="transactionDate">
-      <th mat-header-cell *matHeaderCellDef>Transaction Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.transactionDate | date: "dd/MM/yyyy"}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="transactionType">
-      <th mat-header-cell *matHeaderCellDef>Transaction Type </th>
-      <td mat-cell *matCellDef="let element"> {{element.transactionType}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="fromAccount">
-      <th mat-header-cell *matHeaderCellDef> From Account </th>
-      <td mat-cell *matCellDef="let element"> {{element.fromAccount}} </td>
-    </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="transactionType">
+        <th mat-header-cell *matHeaderCellDef>Transaction Type</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.transactionType }}
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="toAccount">
-      <th mat-header-cell *matHeaderCellDef> To Account </th>
-      <td mat-cell *matCellDef="let element"> {{element.toAccount}} </td>
-    </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="fromAccount">
+        <th mat-header-cell *matHeaderCellDef>From Account</th>
+        <td mat-cell *matCellDef="let element">{{ element.fromAccount }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef> Amount </th>
-      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
-    </ng-container>
+      <ng-container matColumnDef="toAccount">
+        <th mat-header-cell *matHeaderCellDef>To Account</th>
+        <td mat-cell *matCellDef="let element">{{ element.toAccount }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="transactionStatus">
-      <th mat-header-cell *matHeaderCellDef> Tr. Status </th>
-      <td mat-cell *matCellDef="let element"> {{element.transactionStatus}} </td>
-    </ng-container>
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
 
-    
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <ng-container matColumnDef="transactionStatus">
+        <th mat-header-cell *matHeaderCellDef>Tr. Status</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.transactionStatus }}
+        </td>
+      </ng-container>
 
-
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
   <mat-paginator
     [pageSizeOptions]="[5, 10, 25, 100]"
     aria-label="Select page of users"
   ></mat-paginator>
 </div>
+
+
