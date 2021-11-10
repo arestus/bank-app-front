@@ -1,7 +1,9 @@
 <div class="container">
     <mat-tab-group mat-stretch-tabs class="tabs-list">
-        <mat-tab label="Transfer"><app-transfer></app-transfer></mat-tab>
-        <mat-tab label="Deposit"><app-deposit></app-deposit></mat-tab>
-        <mat-tab label="Withdraw"><app-withdraw></app-withdraw></mat-tab>
+        <mat-nav-list>
+            <mat-tab label="Transfer" [routerLink]="'transfer'"><app-transfer></app-transfer></mat-tab>
+            <mat-tab label="Deposit"><app-deposit></app-deposit></mat-tab>
+            <mat-tab label="Withdraw"><app-withdraw></app-withdraw></mat-tab>
+        </mat-nav-list>
     </mat-tab-group>
 </div>
