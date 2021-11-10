@@ -17,9 +17,9 @@
         <mat-error *ngIf="this.depositForm.controls.amount.hasError('max')" [ngClass]="'error'">The maximum amount of one operation is $1000.00!
         </mat-error>
         <mat-error *ngIf="this.depositForm.controls.amount.hasError('min')" [ngClass]="'error'">The minimum allowed
-            value is $2.00</mat-error>
+            value is <mat-icon>currency_rupee</mat-icon>2.00</mat-error>
         <span matSuffix>.00</span>
-        <span matPrefix>$&nbsp;</span>
+        <span matPrefix><mat-icon>currency_rupee</mat-icon>&nbsp;</span>
     </mat-form-field>
 
     <mat-form-field appearance="fill">

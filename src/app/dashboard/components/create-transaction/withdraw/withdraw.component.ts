@@ -13,6 +13,15 @@ export class WithdrawComponent implements OnInit {
 
   transaction!: Transaction;
 
+  currentAcc = 0;
+  savingAcc = 0;
+  
+  currentAccBal = 0;
+  savingAccBal = 0;
+
+  defaultValue = 0;
+  selectedValue = 0;
+
   withdrawForm = new FormGroup({
     from: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
@@ -34,6 +43,14 @@ export class WithdrawComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if (localStorage.getItem('induk-bank-user')) {
+      let storage = localStorage.getItem('induk-bank-user');
+      let parsedStorage = JSON.parse(storage as string);
+      this.currentAcc = parsedStorage.currentAccount;
+      this.savingAcc = parsedStorage.savingAccount;
+      this.savingAccBal = parsedStorage.savingBalance;
+      this.currentAccBal = parsedStorage.currentBalance;
+    }
   }
 
   onFormSubmit() {
