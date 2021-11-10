@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 export class DepositComponent implements OnInit {
 
   transaction!: Transaction;
-
+  currentAcc = 0;
+  savingAcc = 0;
+  currentAccBal = 0;
+  savingAccBal = 0;
+  
   depositForm = new FormGroup({
     to: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
@@ -28,10 +32,20 @@ export class DepositComponent implements OnInit {
   get desc(): any {
     return this.depositForm.get('desc');
   }
+ 
 
-  constructor(private router: Router, private transactionService: TransactionService) { }
+  constructor(private router: Router, private transactionService: TransactionService) {
+   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('induk-bank-user')) {
+      let storage = localStorage.getItem('induk-bank-user');
+      let parsedStorage = JSON.parse(storage as string);
+      this.currentAcc = parsedStorage.currentAcount;
+      this.savingAcc = parsedStorage.savingAcount;
+      this.savingAccBal = parsedStorage.savingBalance;
+      this.currentAccBal = parsedStorage.currentBalance;
+    }
   }
 
   onFormSubmit(){

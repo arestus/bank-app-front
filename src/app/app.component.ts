@@ -38,7 +38,11 @@ export class AppComponent {
     console.log('test33333');
   }
   ChangeAccountType() {
-    this.ChangeAccount('SAVINGS');
+    if (this.accountType === 'CURRENT') {
+      this.ChangeAccount('SAVINGS') 
+    } else {
+      this.ChangeAccount('CURRENT') 
+    }
   }
 
   LogOut() {
