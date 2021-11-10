@@ -41,8 +41,8 @@ export class DepositComponent implements OnInit {
     if (localStorage.getItem('induk-bank-user')) {
       let storage = localStorage.getItem('induk-bank-user');
       let parsedStorage = JSON.parse(storage as string);
-      this.currentAcc = parsedStorage.currentAcount;
-      this.savingAcc = parsedStorage.savingAcount;
+      this.currentAcc = parsedStorage.currentAccount;
+      this.savingAcc = parsedStorage.savingAccount;
       this.savingAccBal = parsedStorage.savingBalance;
       this.currentAccBal = parsedStorage.currentBalance;
     }
