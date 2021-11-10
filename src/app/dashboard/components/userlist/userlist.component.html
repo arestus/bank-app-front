@@ -17,9 +17,7 @@
     <table mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-        <td mat-cell *matCellDef="let row" >{{row.customerID}}
-         
-        </td>
+        <td mat-cell *matCellDef="let row">{{ row.customerID }}</td>
       </ng-container>
 
       <ng-container matColumnDef="fullname">
@@ -33,8 +31,10 @@
       </ng-container>
 
       <ng-container matColumnDef="dateOfBirth">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>dateOfBirth</th>
-        <td mat-cell *matCellDef="let row">{{ row.dateOfBirth }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Birth</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.dateOfBirth | date: "dd/MM/yyyy" }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="address">
@@ -43,7 +43,7 @@
       </ng-container>
 
       <ng-container matColumnDef="phoneNumber">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>PhoneNumber</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
         <td mat-cell *matCellDef="let row">{{ row.phone }}</td>
       </ng-container>
 
@@ -55,28 +55,32 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row; let i = index">
-
-          <button mat-icon-button  class="info-button" (click)="navigate(row.customerID)">
+          <button
+            mat-icon-button
+            class="info-button"
+            (click)="navigate(row.customerID)"
+          >
             <mat-icon aria-label="Info">info</mat-icon>
           </button>
 
-
-          <button mat-icon-button class="edit-button" (click)="startEdit(i, row)">
+          <button
+            mat-icon-button
+            class="edit-button"
+            (click)="startEdit(i, row)"
+          >
             <mat-icon aria-label="Edit">edit</mat-icon>
           </button>
 
-          <button mat-icon-button class="delete-button" >
+          <button mat-icon-button class="delete-button"
+          (click)="deleteUser(i)"
+          >
             <mat-icon aria-label="Delete">delete</mat-icon>
           </button>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: displayedColumns"
-        
-      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">

@@ -10,14 +10,8 @@ mat-form-field{
   padding: 20px;
 }
 
-.mat-header-cell {
-  background: rgb(206, 197, 197);
-  font-size: 20px;
-}
 
-/* td, th {
-  width: 25%;
-} */
+
 
 .search-div{
   display: flex;
@@ -49,4 +43,15 @@ mat-form-field{
 
 .delete-button{
   color: #DC3545;
+}
+
+.mat-header-cell {
+  background: #3f51b5;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.mat-row:hover {
+  background-color: #ADE5F9;
 }
