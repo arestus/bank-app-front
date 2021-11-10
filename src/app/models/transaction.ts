@@ -4,6 +4,7 @@ export class Transaction {
   public amount: number;
 //   public transactionDate: string;
   public descriptions: string;
+  
    
     constructor(
         type: string,

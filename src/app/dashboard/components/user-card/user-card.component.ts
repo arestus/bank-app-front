@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import axios from 'axios';
+import { TableService } from 'src/app/services/table.service';
 
 @Component({
   selector: 'app-user-card',
@@ -9,36 +8,59 @@ import axios from 'axios';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
-  state: any;
-  id:number;
-  dataSource :any;
-  displayedColumns: string[] = ['transactionId', 'transactionDate', 'transactionType', 'fromAccount','toAccount','amount','transactionStatus'];
-  constructor(private router: Router) {
+  // state: any;
+  // id: number;
 
-    const navigation = this.router.getCurrentNavigation();
-    this.state = navigation?.extras.state;
-    this.id = navigation?.extras.state?.customerID;
-    console.log(this.state);
-    this.refreshTransactions();
 
+  
+  constructor(private router: Router,
+     public tableService: TableService) {
+
+    // const navigation = this.router.getCurrentNavigation();
+    // this.state = navigation?.extras.state;
+    // this.id = navigation?.extras.state?.customerID;
+    //   console.log(this.tableService.state,'state-table');
+      
   }
 
   ngOnInit(): void {
   }
 
-  refreshTransactions(){
-    this.getAll(String(this.id)).then(res => { console.log(res.data, "resdata"), this.dataSource  = res.data; });
-  }
+ 
 
-  getAll(id: string) {
-    let transactions = axios.get(`${environment.apiURL + '/TransactionHistory/getTransactions/'}/${id}`,{params:{Accountid :id}} )
+
+  // navigate(id: number) {
+  //   this.router.navigate([`admin/transaction-history/${id}`, { state: id }]);
+  // }
+
+  // applyDateFilter() {
+    
+  //   this.tableService.dataSource = this.tableService.dataSource.filter(e => 
   
-    console.log(transactions, 'transactions')
-  return transactions
-}
+  //     e.transactionDate >= this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, "") && e.transactionDate <= this.form.value.toDate.toISOString().replace(/.\d+Z$/g, "")
+  //   );
+  //   console.log(this.tableService.dataSource, 'this.tableService.dataSource');
+  // }
 
-  navigate(id: number) {
-    this.router.navigate([`admin/transaction-history/${id}`,{state:id}]);
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // onFormSubmitPeriod() {
+  //   console.log('Is Form Invalid', this.dateRangeForm.invalid);
+  //   console.log(this.dateRangeForm.value.fromDate, 'date');
+  //   // this.dataSource = this.dataSource.filter((e: { transactionDate: number; date: number; }) => e.transactionDate >= this.dateRangeForm.value.fromDate && e.date <= this.dateRangeForm.value.toDate);
+  // }
 
 }

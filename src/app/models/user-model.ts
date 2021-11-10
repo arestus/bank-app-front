@@ -1,8 +1,8 @@
 export class UserModel {
   customerID: number = 0;
   email:string ='';
-  savingAcount:number =0;
-  currentAcount:number =0;
+  savingAccount:number =0;
+  currentAccount:number =0;
   savingBalance:number =0;
   currentBalance:number =0;
   name:string ='';

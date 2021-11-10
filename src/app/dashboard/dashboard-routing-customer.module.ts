@@ -5,6 +5,8 @@ import { WrapperComponentUser } from './components/wrapper-user/wrapper-user.com
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
 import { ConfirmationResultComponent } from './components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
+import { UserAccountComponent } from './components/user-account/user-account.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,13 @@ const routes: Routes = [
       {
         path: 'confirmation-result',
         component: ConfirmationResultComponent,
+      },
+        path: 'user-account',
+        component: UserAccountComponent,
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent,
       },
     ],
   },

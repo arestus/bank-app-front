@@ -14,6 +14,8 @@ export class LoginService {
 
 
   LoginAPI(customer: LoginModel) {
+    console.log(customer);
+    
     return this.http.post(
       'https://induk-bank.azurewebsites.net/api/Customer/Login',
       customer
@@ -24,6 +26,18 @@ export class LoginService {
   GetUserById(id: number) {
     return this.http.get(`https://induk-bank.azurewebsites.net/api/Customer/${id}`);
   }
+
+  LoginAdminAPI(customer: LoginModel) {
+    console.log(customer);
+    
+    return this.http.post(
+      'https://induk-bank.azurewebsites.net/api/Employee/Login',
+      customer
+    );
+  }
+
+
+ 
 
 logOut() {
   localStorage.removeItem('induk-bank-user');
@@ -38,21 +52,6 @@ logOut() {
 }
 
 
-private handleError(error: HttpErrorResponse) {
-  if (error.status === 0) {
-    // A client-side or network error occurred. Handle it accordingly.
-    console.error('An error occurred:', error.error);
-  } else {
-    // The backend returned an unsuccessful response code.
-    // The response body may contain clues as to what went wrong.
-    console.error(
-      `Backend returned code ${error.status}, body was: `,
-      error.error
-    );
-  }
-  // Return an observable with a user-facing error message.
-  return throwError('Something bad happened; please try again later.');
-}
 
 getAccountsByUser(id:any, token:any) {
   var header = new HttpHeaders({
@@ -62,7 +61,7 @@ getAccountsByUser(id:any, token:any) {
 
   return this.http
     .get(`https://induk-bank.azurewebsites.net/api/Account/GetAccounts/${id}`, { headers: header })
-    .pipe(catchError(this.handleError));
+    ;
 }
 
 }

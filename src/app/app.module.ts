@@ -55,6 +55,9 @@ import { WrapperComponentUser } from './dashboard/components/wrapper-user/wrappe
 import { UserCardComponent } from './dashboard/components/user-card/user-card.component';
 import { TransactionHistoryComponent } from './dashboard/components/transaction-history/transaction-history.component';
 import { ConfirmationResultComponent } from './dashboard/components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
+import { UserAccountComponent } from './dashboard/components/user-account/user-account.component';
+import { UserProfileComponent } from './dashboard/components/user-profile/user-profile.component';
+
 
 
 
@@ -78,6 +81,8 @@ import { ConfirmationResultComponent } from './dashboard/components/create-trans
     WithdrawComponent,
     UserCardComponent,
     TransactionHistoryComponent,
+    UserAccountComponent,
+    UserProfileComponent,
   ],
   imports: [MatMenuModule,
     BrowserModule,

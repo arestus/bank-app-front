@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import {  Component, ViewChild, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -8,6 +8,7 @@ import { UserlistService } from 'src/app/services/userlist.service';
 import { UserModel } from 'src/app/models/user-model';
 import { EditUserComponent } from '../dialogs/edit-user/edit-user.component';
 import { Router } from '@angular/router';
+import { TableService } from 'src/app/services/table.service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class UserlistComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     public service: UserlistService,
+    public tableService: TableService,
     public router: Router) {
 
 
@@ -41,13 +43,11 @@ export class UserlistComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-
   }
 
 
-
   refreshList() {
-    this.service.getAll().then(res => { console.log(res.data, "resdata"), this.users = res.data; });
+    this.service.getAll().then(res =>  this.users = res.data );
   }
 
   applyFilter(event: Event) {
@@ -81,7 +81,11 @@ export class UserlistComponent implements OnInit {
   }
 
   navigate(id: number, item: any) {
-    this.router.navigate([`admin/user-customer/${id}`],{state:item});
+    this.tableService.state = item;
+    this.router.navigate([`admin/user-customer/${id}`]
+    // ,{state:item}
+    );
+    this.tableService.getAll(String(id));
   }
 
 
