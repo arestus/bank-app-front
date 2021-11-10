@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HistoryComponent } from './components/history/history.component';
 import { WrapperComponentUser } from './components/wrapper-user/wrapper-user.component';
 import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 import { ConfirmationPageComponent } from './components/create-transaction/confirmation-page/confirmation-page.component';
 import { ConfirmationResultComponent } from './components/create-transaction/confirmation-page/confirmation-result/confirmation-result.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { TransferComponent } from './components/create-transaction/transfer/transfer.component';
+import { DepositComponent } from './components/create-transaction/deposit/deposit.component';
+import { WithdrawComponent } from './components/create-transaction/withdraw/withdraw.component';
 
 const routes: Routes = [
   {
@@ -14,12 +16,21 @@ const routes: Routes = [
     component: WrapperComponentUser,
     children: [
       {
-        path: 'history',
-        component: HistoryComponent,
-      },
-      {
         path: 'create-transaction',
         component: CreateTransactionComponent,
+        children: [{
+            path : 'transfer',
+            component: TransferComponent
+           },
+           {
+            path : 'deposit',
+            component: DepositComponent
+           },
+           {
+            path : 'withdraw',
+            component: WithdrawComponent
+           },
+        ]
       },
       {
         path: 'confirmation',
