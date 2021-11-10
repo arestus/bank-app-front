@@ -1,4 +1,4 @@
-<div *ngIf="ShowBalance()">
+<div class="container" *ngIf="ShowBalance()">
 <mat-card>
     <mat-card-title >Current Account</mat-card-title>
     <mat-card-subtitle>Account Number: </mat-card-subtitle>
@@ -21,7 +21,7 @@
     </mat-card-actions>
   </mat-card>
  </div>
- <div class="transaction-history">
+ <div class="transaction-history container">
    <app-transaction-history></app-transaction-history>
 
  </div>

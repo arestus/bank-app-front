@@ -15,3 +15,6 @@
 :host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
   justify-content: center;
 }
+.active {
+  border-bottom: solid 2px rgba(0, 0, 0, 0.12);
+}

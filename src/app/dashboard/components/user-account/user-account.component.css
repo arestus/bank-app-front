@@ -8,3 +8,7 @@
   .mat-raised-button:first-child {
   margin-right: 8px;
 }
+.container {
+  padding: 20px;
+  margin: auto 0;
+}
