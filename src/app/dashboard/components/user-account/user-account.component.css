@@ -1,3 +1,14 @@
-.transaction-history{
-    margin-top: 50px;
+.transaction-history {
+  margin-top: 50px;
+}
+
+:host
+  ::ng-deep
+  .mat-card-actions:not(.mat-card-actions-align-end)
+  .mat-raised-button:first-child {
+  margin-right: 8px;
+}
+.container {
+  padding: 20px;
+  margin: auto 0;
 }
