@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  SimpleChanges,
   VERSION,
   ViewChild,
 } from '@angular/core';
@@ -27,14 +28,20 @@ import jsPDF from 'jspdf';
 })
 export class TransactionHistoryComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
+  currentDate = new Date();
+  startDate = this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+  serializedDate = new FormControl(new Date().toISOString());
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('htmlData') htmlData!: ElementRef;
 
   form = new FormGroup({
-    fromDate: new FormControl(null, { validators: [Validators.required] }),
-    toDate: new FormControl(null, { validators: [Validators.required] }),
+    fromDate: new FormControl(this.currentDate, { validators: [Validators.required] }),
+    toDate: new FormControl(new Date(), { validators: [Validators.required] }),
   });
+
+  
+  
 
   displayedColumns: string[] = [
     'transactionId',
@@ -47,17 +54,31 @@ export class TransactionHistoryComponent implements OnInit {
   ];
   constructor(private router: Router, public tableService: TableService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes,'changeees')
+  }
 
   applyDateFilter() {
-    this.tableService.dataSource = this.tableService.dataSource.filter(
-      (e) =>
-        e.transactionDate >=
-          this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '') &&
-        e.transactionDate <=
-          this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
-    );
-    console.log(this.tableService.dataSource, 'this.tableService.dataSource');
+const fromDate = this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '');
+const toDate = this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
+
+this.tableService.applyDateFilter(fromDate,toDate)
+
+    console.log("filter")
+    // this.tableService.dataSource = this.tableService.dataSource.filter(
+    //   (e) =>
+    //     e.transactionDate >=
+    //       this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '') &&
+    //     e.transactionDate <=
+    //       this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
+
+    // );
+    
   }
 
   // PDF
