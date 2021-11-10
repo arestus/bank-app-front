@@ -1,7 +1,7 @@
 <div class="container" *ngIf="ShowBalance()">
 <mat-card>
     <mat-card-title >Current Account</mat-card-title>
-    <mat-card-subtitle>Account Number: </mat-card-subtitle>
+    <mat-card-subtitle>Account Number: {{currentAccount}}</mat-card-subtitle>
     <p> <mat-icon> currency_rupee </mat-icon> {{ currentBalance }}</p>
     <mat-card-actions> 
       <a mat-raised-button (click)="currentDefault()" color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
@@ -12,7 +12,7 @@
   <br>
   <mat-card>
     <mat-card-title>Savings Account</mat-card-title>
-    <mat-card-subtitle>Account Number</mat-card-subtitle>
+    <mat-card-subtitle>Account Number : {{savingAccount }}</mat-card-subtitle> 
     <p> <mat-icon> currency_rupee </mat-icon> {{ savingBalance }}</p>
     <mat-card-actions>
         <a mat-raised-button (click)="savingDefault()" color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
