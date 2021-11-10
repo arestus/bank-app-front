@@ -56,9 +56,10 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row; let i = index">
 
-          <button mat-icon-button  class="info-button" (click)="navigate(row.customerID, row)">
+          <button mat-icon-button  class="info-button" (click)="navigate(row.customerID)">
             <mat-icon aria-label="Info">info</mat-icon>
           </button>
+
 
           <button mat-icon-button class="edit-button" (click)="startEdit(i, row)">
             <mat-icon aria-label="Edit">edit</mat-icon>
