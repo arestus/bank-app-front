@@ -1,9 +1,9 @@
   <form [formGroup] = "transferForm"   (ngSubmit)="onFormSubmit()">
                 <mat-form-field appearance="fill">
                     <mat-label>From account</mat-label>
-                    <mat-select formControlName="to">
-                        <mat-option value=1>First account</mat-option>
-                        <mat-option value=2>Second account</mat-option>
+                    <mat-select formControlName="to" [(value)]="selectedValue">
+                        <mat-option value={{currentAcc}}>Current account: {{currentAccBal}}</mat-option>
+                        <mat-option value={{savingAcc}}>Saving account: {{savingAccBal}}</mat-option>
                     </mat-select>
                     <!-- <input formControlName="to" type="number"  matInput> -->
                     <mat-error *ngIf="this.transferForm.controls.from.hasError('required')" [ngClass]="'error'">Choose your account!</mat-error>
@@ -19,7 +19,7 @@
                     <mat-error *ngIf="this.transferForm.controls.amount.hasError('max')" [ngClass]="'error'">Not enough money!</mat-error>
                     <mat-error *ngIf="this.transferForm.controls.amount.hasError('min')" [ngClass]="'error'">The minimum allowed value is $2.00</mat-error>
                     <span matSuffix>.00</span>
-                    <span matPrefix>$&nbsp;</span>
+                    <span matPrefix><mat-icon>currency_rupee</mat-icon>&nbsp;</span>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Description</mat-label>
