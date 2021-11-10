@@ -4,12 +4,9 @@
     <mat-card-subtitle>Account Number: </mat-card-subtitle>
     <p> <mat-icon> currency_rupee </mat-icon> {{ currentBalance }}</p>
     <mat-card-actions> 
-      <!-- <button mat-raised-button color="primary">Deposit</button>
-      <button mat-raised-button color="primary">Withdraw</button>
-      <button mat-raised-button color="primary">Transfer</button> -->
-      <a mat-raised-button color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
-      <a mat-raised-button color="primary" routerLink="/customer/create-transaction/deposit">Deposit</a>
-      <a mat-raised-button color="primary" routerLink="/customer/create-transaction/withdraw">Withdraw</a>
+      <a mat-raised-button (click)="currentDefault()" color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
+      <a mat-raised-button (click)="currentDefault()" color="primary" routerLink="/customer/create-transaction/deposit">Deposit</a>
+      <a mat-raised-button (click)="currentDefault()" color="primary" routerLink="/customer/create-transaction/withdraw">Withdraw</a>
     </mat-card-actions>
   </mat-card>  
   <br>
@@ -18,12 +15,9 @@
     <mat-card-subtitle>Account Number</mat-card-subtitle>
     <p> <mat-icon> currency_rupee </mat-icon> {{ savingBalance }}</p>
     <mat-card-actions>
-        <!-- <button mat-raised-button color="primary">Deposit</button>
-        <button mat-raised-button color="primary">Withdraw</button>
-        <button mat-raised-button color="primary">Transfer</button> -->
-        <a mat-raised-button color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
-        <a mat-raised-button color="primary" routerLink="/customer/create-transaction/deposit">Deposit</a>
-        <a mat-raised-button color="primary" routerLink="/customer/create-transaction/withdraw">Withdraw</a>
+        <a mat-raised-button (click)="savingDefault()" color="primary" routerLink="/customer/create-transaction/transfer">Transfer</a>
+        <a mat-raised-button (click)="savingDefault()" color="primary" routerLink="/customer/create-transaction/deposit">Deposit</a>
+        <a mat-raised-button (click)="savingDefault()" color="primary" routerLink="/customer/create-transaction/withdraw">Withdraw</a>
     </mat-card-actions>
   </mat-card>
  </div>
