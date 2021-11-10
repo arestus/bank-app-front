@@ -10,6 +10,7 @@
 .transaction-navigation-list {
   display: flex;
   width: 70%;
+  /* border-bottom: solid 1px rgba(0, 0, 0, 0.12); */
 }
 :host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content {
   justify-content: center;
