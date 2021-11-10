@@ -22,6 +22,7 @@ export class TransactionHistoryComponent implements OnInit {
     fromDate: new FormControl(null, { validators: [Validators.required] }),
     toDate: new FormControl(null, { validators: [Validators.required] })
   });
+  
 
   displayedColumns: string[] = [
     'transactionId',
@@ -39,10 +40,11 @@ export class TransactionHistoryComponent implements OnInit {
   }
 
   applyDateFilter() {
-    this.tableService.dataSource = this.tableService.dataSource.filter(e => 
+    this.tableService.dataSource = 
+     this.tableService.dataSource.filter(e => 
       e.transactionDate >= this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, "") && e.transactionDate <= this.form.value.toDate.toISOString().replace(/.\d+Z$/g, "")
     );
-    console.log(this.tableService.dataSource, 'this.tableService.dataSource');
+    
   }
 
 }

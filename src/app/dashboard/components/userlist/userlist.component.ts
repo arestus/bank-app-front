@@ -74,10 +74,12 @@ export class UserlistComponent implements OnInit {
     dialogConfig.width = "50%";
     dialogConfig.data = { index, item };
     this.dialog.open(EditUserComponent, dialogConfig);
+    this.refreshList();
   }
 
   deleteItem(id: string) {
-
+    this.service.delete(id);
+    this.refreshList();
   }
 
   navigate(id: number, item: any) {

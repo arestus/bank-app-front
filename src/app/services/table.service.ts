@@ -14,7 +14,7 @@ export class TableService {
 
   getAll(id: string) {
     let transactions = axios.get(`${environment.apiURL + '/TransactionHistory/getTransactions/'}/${id}`, { params: { Accountid: id } })
-    .then(res => { console.log(res.data, "resdata"), this.dataSource = res.data; });
+    .then(res =>  this.dataSource = res.data );
 
     //console.log(transactions, 'transactions');
     // return transactions;

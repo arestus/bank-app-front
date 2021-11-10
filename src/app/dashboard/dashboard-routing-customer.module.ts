@@ -29,6 +29,7 @@ const routes: Routes = [
         path: 'confirmation-result',
         component: ConfirmationResultComponent,
       },
+      {
         path: 'user-account',
         component: UserAccountComponent,
       },
