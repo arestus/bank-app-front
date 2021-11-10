@@ -23,13 +23,10 @@ export class DepositComponent implements OnInit {
   defaultValue = 0;
   selectedValue = 0;
   
-  depositForm = new FormGroup({
-    to: new FormControl('', Validators.required),
-    amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
-    desc: new FormControl('', Validators.required)
-  });
-
+  
   get to(): any {
+    
+    
     return this.depositForm.get('to');
   }
   get amount(): any {
@@ -52,17 +49,30 @@ export class DepositComponent implements OnInit {
       this.savingAccBal = parsedStorage.savingBalance;
       this.currentAccBal = parsedStorage.currentBalance;
     }
-    // this.defaultValue = this.accountService.selectedAccount;
-    // if (this.defaultValue === this.currentAcc) {
-    //   this.selectedValue = this.currentAcc
-    // } else {
-    //   this.selectedValue = this.savingAcc
-    // }
-    // console.log("Yha")
-    // console.log(this.defaultValue)
-    // console.log(this.selectedValue)
+ 
   }
-
+  depositForm = new FormGroup({
+    to: new FormControl(String(this.GetAccNumber()), Validators.required),
+    amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
+    desc: new FormControl('', Validators.required)
+  });
+GetAccNumber(){ 
+  if (localStorage.getItem('induk-bank-user')) {
+  let storage = localStorage.getItem('induk-bank-user');
+  let parsedStorage = JSON.parse(storage as string);
+  this.currentAcc = parsedStorage.currentAccount;
+  this.savingAcc = parsedStorage.savingAccount;
+  this.savingAccBal = parsedStorage.savingBalance;
+  this.currentAccBal = parsedStorage.currentBalance;
+}
+   this.defaultValue = this.accountService.selectedAccount;
+    if (this.defaultValue === this.currentAcc) {
+      this.selectedValue = this.currentAcc
+    } else {
+      this.selectedValue = this.savingAcc
+    }
+  return this.selectedValue 
+}
   onFormSubmit(){
     const type = "Deposit";
     const account = this.depositForm.get('to')!.value;

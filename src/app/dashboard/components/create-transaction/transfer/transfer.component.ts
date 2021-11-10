@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular
 import { TransactionTransfer } from 'src/app/models/transactionTransfer';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/transactions/account.service';
 
 @Component({
   selector: 'app-transfer',
@@ -24,7 +25,7 @@ export class TransferComponent implements OnInit {
 
   currentAmount:number = 100;
   transferForm = new FormGroup({
-    to: new FormControl('', Validators.required),
+    to: new FormControl(String(this.GetAccNumber()), Validators.required),
     from: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(this.currentAmount), Validators.min(2)]),
     desc: new FormControl('', Validators.required)
@@ -43,7 +44,7 @@ export class TransferComponent implements OnInit {
     return this.transferForm.get('desc');
   }
 
-  constructor(private router: Router, private transactionService: TransactionService) {}
+  constructor(private router: Router, private transactionService: TransactionService, private accountService: AccountService) {}
 
   onFormSubmit(){
     const type = "Transfer";
@@ -56,7 +57,23 @@ export class TransferComponent implements OnInit {
     this.transactionService.setNewTransactionTransfer(currentTransaction);
     this.router.navigate(["customer/confirmation"]);
   }
-
+  GetAccNumber(){ 
+    if (localStorage.getItem('induk-bank-user')) {
+    let storage = localStorage.getItem('induk-bank-user');
+    let parsedStorage = JSON.parse(storage as string);
+    this.currentAcc = parsedStorage.currentAccount;
+    this.savingAcc = parsedStorage.savingAccount;
+    this.savingAccBal = parsedStorage.savingBalance;
+    this.currentAccBal = parsedStorage.currentBalance;
+  }
+     this.defaultValue = this.accountService.selectedAccount;
+      if (this.defaultValue === this.currentAcc) {
+        this.selectedValue = this.currentAcc
+      } else {
+        this.selectedValue = this.savingAcc
+      }
+    return this.selectedValue 
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('induk-bank-user')) {

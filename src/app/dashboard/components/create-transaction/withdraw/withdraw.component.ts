@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/transactions/account.service';
 
 @Component({
   selector: 'app-withdraw',
@@ -23,7 +24,7 @@ export class WithdrawComponent implements OnInit {
   selectedValue = 0;
 
   withdrawForm = new FormGroup({
-    from: new FormControl('', Validators.required),
+    from: new FormControl(String(this.GetAccNumber()), Validators.required),
     amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
     desc: new FormControl('', Validators.required)
   });
@@ -39,7 +40,7 @@ export class WithdrawComponent implements OnInit {
   }
 
   constructor(
-    private router: Router, private transactionService: TransactionService) {
+    private router: Router, private transactionService: TransactionService, private accountService: AccountService) {
    }
 
   ngOnInit(): void {
@@ -65,6 +66,23 @@ export class WithdrawComponent implements OnInit {
     this.transactionService.setNewTransaction(currentTransaction);
     
     this.router.navigate(["customer/confirmation"]);
+  }
+  GetAccNumber(){ 
+    if (localStorage.getItem('induk-bank-user')) {
+    let storage = localStorage.getItem('induk-bank-user');
+    let parsedStorage = JSON.parse(storage as string);
+    this.currentAcc = parsedStorage.currentAccount;
+    this.savingAcc = parsedStorage.savingAccount;
+    this.savingAccBal = parsedStorage.savingBalance;
+    this.currentAccBal = parsedStorage.currentBalance;
+  }
+     this.defaultValue = this.accountService.selectedAccount;
+      if (this.defaultValue === this.currentAcc) {
+        this.selectedValue = this.currentAcc
+      } else {
+        this.selectedValue = this.savingAcc
+      }
+    return this.selectedValue 
   }
 
   reset = () => {

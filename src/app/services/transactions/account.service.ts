@@ -13,10 +13,12 @@ export class AccountService {
     let storage = localStorage.getItem('induk-bank-user');
     let parsedStorage = JSON.parse(storage as string);
     this.selectedAccount = parsedStorage.savingAccount;
+    return this.selectedAccount
   }
   currentAccount() {
     let storage = localStorage.getItem('induk-bank-user');
     let parsedStorage = JSON.parse(storage as string);
     this.selectedAccount = parsedStorage.currentAccount;
+    return this.selectedAccount
   }
 }
