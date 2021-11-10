@@ -28,13 +28,16 @@ import jsPDF from 'jspdf';
 })
 export class TransactionHistoryComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
+  currentDate = new Date();
+  startDate = this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+  serializedDate = new FormControl(new Date().toISOString());
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('htmlData') htmlData!: ElementRef;
 
   form = new FormGroup({
-    fromDate: new FormControl(null, { validators: [Validators.required] }),
-    toDate: new FormControl(null, { validators: [Validators.required] }),
+    fromDate: new FormControl(this.currentDate, { validators: [Validators.required] }),
+    toDate: new FormControl(new Date(), { validators: [Validators.required] }),
   });
 
   

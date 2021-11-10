@@ -8,6 +8,7 @@ import { TransactionHistory } from '../models/transactionHistory';
   providedIn: 'root'
 })
 export class TableService {
+  tmpdataSource!: TransactionHistory[];
   dataSource!: TransactionHistory[];
   state: any;
   filteredDate: any;
