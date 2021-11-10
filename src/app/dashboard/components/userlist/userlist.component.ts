@@ -77,9 +77,9 @@ export class UserlistComponent implements OnInit {
     this.refreshList();
   }
 
-  deleteItem(id: string) {
-    this.service.delete(id);
-    this.refreshList();
+  deleteUser(id: string) {
+    // this.service.delete(id);
+    // this.refreshList();
   }
 
   navigate(id: number) {
@@ -91,16 +91,7 @@ export class UserlistComponent implements OnInit {
     this.tableService.getAll(String(id));
   }
 
-  // navigateToItem(id: number) {
-
-    
-  //   this.service.getById(String(id)).then(res=> this.tableService.state = res)
-  //   this.router.navigate([`admin/user-customer/${id}`]
-  //   // ,{state:item}
-  //   );
-  //   this.tableService.getAll(String(id));
-  // }
-
+  
 
 }
 
