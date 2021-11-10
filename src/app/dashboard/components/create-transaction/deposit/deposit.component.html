@@ -2,7 +2,7 @@
     
     <mat-form-field appearance="fill">
         <mat-label>To account</mat-label>
-        <mat-select formControlName="to">
+        <mat-select formControlName="to" [(value)]="selectedValue">
             <mat-option value={{currentAcc}}>Current account: {{currentAccBal}}</mat-option>
             <mat-option value={{savingAcc}}>Saving account: {{savingAccBal}}</mat-option>
         </mat-select>

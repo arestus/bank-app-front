@@ -1,7 +1,16 @@
 <div class="container">
-    <mat-tab-group mat-stretch-tabs class="tabs-list">
-        <mat-tab label="Transfer"><app-transfer></app-transfer></mat-tab>
-        <mat-tab label="Deposit"><app-deposit></app-deposit></mat-tab>
-        <mat-tab label="Withdraw"><app-withdraw></app-withdraw></mat-tab>
-    </mat-tab-group>
+    <mat-nav-list class="transaction-navigation-list">
+            <mat-list-item [routerLink]="'transfer'" routerLinkActive="active">
+                Transfer
+            </mat-list-item>
+            <mat-list-item [routerLink]="'deposit'" routerLinkActive="active">
+                Deposit
+            </mat-list-item>
+            <mat-list-item  [routerLink]="'withdraw'" routerLinkActive="active">
+                Withdraw
+            </mat-list-item>
+        </mat-nav-list>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
 </div>

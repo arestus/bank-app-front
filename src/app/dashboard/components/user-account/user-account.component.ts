@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TableService } from 'src/app/services/table.service';
+import { AccountService } from 'src/app/services/transactions/account.service';
 
 @Component({
   selector: 'app-user-account',
@@ -11,7 +12,7 @@ export class UserAccountComponent implements OnInit {
   userID:number=0;
   currentBalance = 4654;
   savingBalance =5245; 
-  constructor(private _router:Router, public tableService: TableService ) { }
+  constructor(private _router:Router, public tableService: TableService, private accountService: AccountService) { }
   ShowBalance(){
     {
       if (localStorage.getItem('induk-bank-user')) {
@@ -34,4 +35,12 @@ export class UserAccountComponent implements OnInit {
  
   }
 
+  currentDefault() {
+    this.accountService.currentAccount();
+  }
+
+  savingDefault() {
+    this.accountService.savingAccount();
+  }
+  
 }

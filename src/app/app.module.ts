@@ -46,6 +46,7 @@ import { TransferComponent } from './dashboard/components/create-transaction/tra
 import { DepositComponent } from './dashboard/components/create-transaction/deposit/deposit.component';
 import { WithdrawComponent } from './dashboard/components/create-transaction/withdraw/withdraw.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { EditUserComponent } from './dashboard/components/dialogs/edit-user/edit-user.component';
@@ -85,6 +86,7 @@ import { UserProfileComponent } from './dashboard/components/user-profile/user-p
     UserProfileComponent,
   ],
   imports: [MatMenuModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
@@ -112,7 +114,7 @@ import { UserProfileComponent } from './dashboard/components/user-profile/user-p
     MatButtonModule,
     MatDialogModule,
   ],
-  exports: [MatToolbarModule, MatTableModule, MatDialogModule],
+  exports: [MatToolbarModule, MatTableModule, MatDialogModule, MatSelectModule,FormsModule],
   providers: [UserlistService,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },DatePipe
   ],

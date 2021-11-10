@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup, FormGroupDirective } from '@angular
 import { Transaction } from 'src/app/models/transaction';
 import { TransactionService } from 'src/app/services/transactions/transaction.service';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/services/transactions/account.service';
 
 @Component({
   selector: 'app-deposit',
@@ -12,10 +13,15 @@ import { Router } from '@angular/router';
 export class DepositComponent implements OnInit {
 
   transaction!: Transaction;
+  
   currentAcc = 0;
   savingAcc = 0;
+  
   currentAccBal = 0;
   savingAccBal = 0;
+  
+  defaultValue = 0;
+  selectedValue = 0;
   
   depositForm = new FormGroup({
     to: new FormControl('', Validators.required),
@@ -34,7 +40,7 @@ export class DepositComponent implements OnInit {
   }
  
 
-  constructor(private router: Router, private transactionService: TransactionService) {
+  constructor(private router: Router, private transactionService: TransactionService, private accountService: AccountService) {
    }
 
   ngOnInit(): void {
@@ -46,6 +52,15 @@ export class DepositComponent implements OnInit {
       this.savingAccBal = parsedStorage.savingBalance;
       this.currentAccBal = parsedStorage.currentBalance;
     }
+    // this.defaultValue = this.accountService.selectedAccount;
+    // if (this.defaultValue === this.currentAcc) {
+    //   this.selectedValue = this.currentAcc
+    // } else {
+    //   this.selectedValue = this.savingAcc
+    // }
+    // console.log("Yha")
+    // console.log(this.defaultValue)
+    // console.log(this.selectedValue)
   }
 
   onFormSubmit(){
