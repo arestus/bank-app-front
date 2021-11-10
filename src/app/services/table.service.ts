@@ -11,16 +11,31 @@ export class TableService {
   tmpdataSource!: TransactionHistory[];
   dataSource!: TransactionHistory[];
   state: any;
+  filteredDate: any;
   constructor() { }
 
   getAll(id: string) {
     let transactions = axios.get(`${environment.apiURL + '/TransactionHistory/getTransactions/'}/${id}`, { params: { Accountid: id } })
-    .then(res => { 
-      console.log(res.data, "resdata"),
-       this.dataSource = res.data; 
-       this.tmpdataSource = res.data});
+    .then(res => {console.log(res,'get all res') 
+      this.dataSource = res.data
+      this.filteredDate = res.data
+    }  );
 
     //console.log(transactions, 'transactions');
     // return transactions;
+  }
+
+  applyDateFilter(fromDate: any,toDate: any) {
+
+    console.log("filter")
+    this.filteredDate = this.dataSource.filter(
+      (e) =>
+        e.transactionDate >=
+          fromDate &&
+        e.transactionDate <=
+          toDate
+
+    );
+    
   }
 }

@@ -37,3 +37,16 @@ mat-form-field{
   height: 40px;
   padding: 0px !important;
 }
+
+.info-button{
+  color: #5388b4;
+}
+
+.edit-button{
+  color: #28A745;
+  
+}
+
+.delete-button{
+  color: #DC3545;
+}

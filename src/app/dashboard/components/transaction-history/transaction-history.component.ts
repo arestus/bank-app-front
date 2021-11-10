@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  SimpleChanges,
   VERSION,
   ViewChild,
 } from '@angular/core';
@@ -39,6 +40,9 @@ export class TransactionHistoryComponent implements OnInit {
     toDate: new FormControl(new Date(), { validators: [Validators.required] }),
   });
 
+  
+  
+
   displayedColumns: string[] = [
     'transactionId',
     'transactionDate',
@@ -50,19 +54,31 @@ export class TransactionHistoryComponent implements OnInit {
   ];
   constructor(private router: Router, public tableService: TableService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes,'changeees')
+  }
 
   applyDateFilter() {
-  
-    this.tableService.dataSource = this.tableService.tmpdataSource.filter(
-      (e) => 
-        e.transactionDate >=
-          this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '') &&
-        e.transactionDate <=
-          this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
-    );
-    // console.log(this.tableService.dataSource, 'this.tableService.dataSource');
-    // console.log(this.tableService.tmpdataSource, 'this.tableService.tmpdataSource');
+const fromDate = this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '');
+const toDate = this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
+
+this.tableService.applyDateFilter(fromDate,toDate)
+
+    console.log("filter")
+    // this.tableService.dataSource = this.tableService.dataSource.filter(
+    //   (e) =>
+    //     e.transactionDate >=
+    //       this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '') &&
+    //     e.transactionDate <=
+    //       this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
+
+    // );
+    
   }
 
   // PDF

@@ -79,14 +79,14 @@ export class EditUserComponent implements OnInit {
 
   onSubmit() {
 
-    // const invalid = [];
-    // const controls = this.form.controls;
-    // for (const name in controls) {
-    //   if (controls[name].invalid) {
-    //     invalid.push(name);
-    //   }
-    // }
-    // console.log(invalid,'invalid');
+    const invalid = [];
+    const controls = this.form.controls;
+    for (const name in controls) {
+      if (controls[name].invalid) {
+        invalid.push(name);
+      }
+    }
+    console.log(invalid,'invalid');
 
     this.service.update(this.form.value.customerID,this.form.value);
 

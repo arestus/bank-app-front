@@ -34,12 +34,11 @@
       Submit
     </button>
     <div class="btn-class">
-
       <button class="button-form" mat-raised-button (click)="openPDF()">
         Open PDF
       </button>
       <br /><br />
-      <button class="button-form" mat-raised-button  (click)="downloadPDF()">
+      <button class="button-form" mat-raised-button (click)="downloadPDF()">
         Download PDF
       </button>
     </div>
@@ -47,7 +46,7 @@
   <div class="col-md-8" id="htmlData" #htmlData>
     <table
       mat-table
-      [dataSource]="tableService.dataSource"
+      [dataSource]="tableService.filteredDate"
       class="mat-elevation-z8"
     >
       <ng-container matColumnDef="transactionId">
@@ -103,5 +102,3 @@
     aria-label="Select page of users"
   ></mat-paginator>
 </div>
-
-
