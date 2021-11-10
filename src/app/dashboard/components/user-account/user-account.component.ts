@@ -30,7 +30,7 @@ export class UserAccountComponent implements OnInit {
   ngOnInit(): void {
     let storage = localStorage.getItem('induk-bank-user');
     this.userID= JSON.parse(storage as string).customerID;
-    this.tableService.getAll(String(24));
+    this.tableService.getAll(String(this.userID));
  
   }
 

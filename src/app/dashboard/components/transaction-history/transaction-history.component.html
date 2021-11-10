@@ -12,6 +12,7 @@
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
+    
     <mat-form-field class="picker2">
       <input
         matInput
@@ -29,7 +30,6 @@
       mat-raised-button
       color="accent"
       (click)="applyDateFilter()"
-      [disabled]="form.invalid"
     >
       Submit
     </button>

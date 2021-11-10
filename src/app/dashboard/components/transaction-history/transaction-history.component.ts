@@ -27,13 +27,16 @@ import jsPDF from 'jspdf';
 })
 export class TransactionHistoryComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
+  currentDate = new Date();
+  startDate = this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+  serializedDate = new FormControl(new Date().toISOString());
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('htmlData') htmlData!: ElementRef;
 
   form = new FormGroup({
-    fromDate: new FormControl(null, { validators: [Validators.required] }),
-    toDate: new FormControl(null, { validators: [Validators.required] }),
+    fromDate: new FormControl(this.currentDate, { validators: [Validators.required] }),
+    toDate: new FormControl(new Date(), { validators: [Validators.required] }),
   });
 
   displayedColumns: string[] = [
@@ -50,14 +53,16 @@ export class TransactionHistoryComponent implements OnInit {
   ngOnInit(): void {}
 
   applyDateFilter() {
-    this.tableService.dataSource = this.tableService.dataSource.filter(
-      (e) =>
+  
+    this.tableService.dataSource = this.tableService.tmpdataSource.filter(
+      (e) => 
         e.transactionDate >=
           this.form.value.fromDate.toISOString().replace(/.\d+Z$/g, '') &&
         e.transactionDate <=
           this.form.value.toDate.toISOString().replace(/.\d+Z$/g, '')
     );
-    console.log(this.tableService.dataSource, 'this.tableService.dataSource');
+    // console.log(this.tableService.dataSource, 'this.tableService.dataSource');
+    // console.log(this.tableService.tmpdataSource, 'this.tableService.tmpdataSource');
   }
 
   // PDF
