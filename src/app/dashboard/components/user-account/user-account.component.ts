@@ -19,7 +19,7 @@ export class UserAccountComponent implements OnInit {
         let parsedStorage = JSON.parse(storage as string);
         this.currentBalance = parsedStorage.currentBalance;             
         this.savingBalance= parsedStorage.savingBalance;   
-        console.log(parsedStorage);
+        // console.log(parsedStorage);
         return true;
       } else {
         return false;
@@ -30,7 +30,7 @@ export class UserAccountComponent implements OnInit {
   ngOnInit(): void {
     let storage = localStorage.getItem('induk-bank-user');
     this.userID= JSON.parse(storage as string).customerID;
-    this.tableService.getAll(String(this.userID));
+    this.tableService.getAll(String(24));
  
   }
 

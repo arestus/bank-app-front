@@ -32,3 +32,8 @@ button{
 .mat-row:hover {
   background-color: #ADE5F9;
 }
+.btn-class{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
