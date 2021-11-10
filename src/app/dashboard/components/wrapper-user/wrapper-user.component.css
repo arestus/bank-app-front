@@ -1,21 +1,20 @@
-mat-sidenav-container{
+mat-sidenav-container {
   height: 100%;
   width: 100%;
-  display: flex;
 }
 
-mat-list-item  span{
-    margin: 0 15px 0 20px;
-  }
+mat-list-item span {
+  margin: 0 15px 0 20px;
+}
 
-.chevron-button{
+.chevron-button {
   transition: 300ms ease-in-out;
   transform: rotate(0deg);
 }
 
-.chevron-button.rotated{
+.chevron-button.rotated {
   transform: rotate(180deg);
   right: 0;
-  float:right;
+  float: right;
   position: absolute;
 }
