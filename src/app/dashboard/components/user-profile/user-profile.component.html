@@ -1,41 +1,44 @@
-<div *ngIf="ShowUserProfile()"> 
-    <table class="table table-bordered">
-      <tr>
+<div *ngIf="ShowUserProfile()">
+  <div class="container">
+    <table> 
+        <tr>
           <th>Customer Information</th>
-      </tr>
-      <tr>
-          <td>Customer ID</td>
+        </tr>
+        <tr>
+          <td><mat-icon>create</mat-icon>&nbsp;&nbsp;<strong>Customer ID</strong></td>
           <td>{{customerID}}</td>
-      </tr>
-      <tr>
-        <td>Name</td>
-        <td>{{name}}</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>{{email}}</td>
-      </tr>
-      <tr>
-        <td>Phone No.</td>
-        <td>{{phone}}</td>
-      </tr>
-      <tr>
-        <td>Address</td>
-        <td>{{address}}</td>
-      </tr>
-      <tr>
-        <td>Date of Birth</td>
-        <td>{{dateOfBirth}}</td>
-      </tr>
-      <tr>
-        <td>PAN Number</td>
-        <td>{{paNnumber}}</td>
-      </tr>
-      <tr>
-        <td>Aadhar Number</td>
-        <td>{{aadhaarnumber}}</td>
-      </tr>    
-    </table>
+        </tr>
+        <tr>          
+          <td><mat-icon>person</mat-icon>&nbsp;&nbsp; <strong>Name</strong></td>
+          <td>{{name}}</td>
+        </tr>
+        <tr>
+          <td><mat-icon>email</mat-icon>&nbsp;&nbsp; <strong>Email</strong></td>
+          <td>{{email}}</td>
+        </tr>
+        <tr>
+          <td><mat-icon>phone</mat-icon>&nbsp;&nbsp;<strong>Contact No.</strong></td>
+          <td>{{phone}}</td>
+        </tr>
+        <tr>
+          <td><mat-icon>home</mat-icon>&nbsp;&nbsp;<strong>Address</strong></td>
+          <td>{{address}}</td>
+        </tr>
+        <tr>
+          <td><mat-icon>cake</mat-icon>&nbsp;&nbsp;<strong>Date of Birth</strong></td>
+          <td>{{dateOfBirth}}</td>
+        </tr>
+        <tr>
+          <td ><mat-icon>payment</mat-icon>&nbsp;&nbsp;<strong>PAN Number</strong></td>
+          <td>{{paNnumber}}</td>
+        </tr>
+        <tr>
+          <td><mat-icon>payment</mat-icon>&nbsp;&nbsp;<strong>Aadhar Number</strong></td>
+          <td>{{aadhaarnumber}}</td>
+        </tr> 
+
+      </table>
+    </div>
     <!-- Customer ID :{{customerID}}<br>
     Name : {{name}}<br>
     Email :{{email}} <br>
