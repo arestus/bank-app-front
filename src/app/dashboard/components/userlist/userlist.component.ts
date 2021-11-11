@@ -77,10 +77,10 @@ export class UserlistComponent implements OnInit {
     this.refreshList();
   }
 
-  deleteUser(id: string) {
-    // this.service.delete(id);
-    // this.refreshList();
-  }
+  // deleteUser(id: string) {
+  //   // this.service.delete(id);
+  //   // this.refreshList();
+  // }
 
   navigate(id: number) {
     // this.tableService.state = item;
