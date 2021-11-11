@@ -27,7 +27,7 @@ export class TransferComponent implements OnInit {
   transferForm = new FormGroup({
     to: new FormControl(String(this.GetAccNumber()), Validators.required),
     from: new FormControl('', Validators.required),
-    amount: new FormControl('', [Validators.required, Validators.max(this.currentAmount), Validators.min(2)]),
+    amount: new FormControl('', [Validators.required, Validators.max(1000), Validators.min(2)]),
     desc: new FormControl('', Validators.required)
   });
 

@@ -10,7 +10,7 @@
         </mat-card-content>
         <mat-card-actions>
             <button *ngIf="this.currentTransaction" mat-button (click)="confirmTransaction()">Confirm</button>
-            <button *ngIf="this.currentTransaction" mat-button>Cancel</button>
+            <button *ngIf="this.currentTransaction" mat-button (click)="goBack()"> Cancel</button>
         </mat-card-actions>
     </mat-card>
 </div>

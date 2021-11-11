@@ -3,6 +3,7 @@ import { TransactionService } from 'src/app/services/transactions/transaction.se
 import { ConfirmationService } from 'src/app/services/transactions/confirmation.service';
 import { TransactionTransfer } from 'src/app/models/transactionTransfer';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 import { LoginService } from 'src/app/services/login-service/login.service';
 import { AccountModel } from 'src/app/models/account';
 
@@ -18,30 +19,13 @@ export class ConfirmationPageComponent implements OnInit {
     private transactionService: TransactionService,
     private confirmationService: ConfirmationService,
     private router: Router,
+    private _location: Location,
     private loginService: LoginService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.currentTransaction = this.transactionService.currentTransaction;
   }
-
-  // confirmTransaction() {
-  //   if (this.currentTransaction.type === "Transfer") {
-  //     this.confirmationService.transferTransaction(this.currentTransaction).subscribe((transData) => {
-  //       console.log(transData);
-  //     });
-  //   } else if (this.currentTransaction.type === "Deposit") {
-  //     this.confirmationService.depositTransaction(this.currentTransaction).subscribe((transData) => {
-  //       console.log(transData);
-  //     });
-  //   } else if (this.currentTransaction.type === "Withdraw") {
-  //     this.confirmationService.withdrawTransaction(this.currentTransaction).subscribe((transData) => {
-  //       console.log(transData);
-  //     }, err => {
-  //       console.log(err)
-  //     });
-  //   }
-  // }
 
   confirmTransaction() {
     this.confirmationService
@@ -71,5 +55,8 @@ export class ConfirmationPageComponent implements OnInit {
           this.router.navigate(['customer/confirmation-result']);
         });
     }
+  }
+  goBack() {
+    this._location.back();
   }
 }
