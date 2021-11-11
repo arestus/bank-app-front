@@ -10,6 +10,8 @@ export class ConfirmationService {
   constructor(private http: HttpClient, public currentTransaction: TransactionService) { }
 
   transferTransaction(currentTransaction:any) {
+    console.log("test2");
+    
     return this.http.post(`https://induk-bank.azurewebsites.net/api/TransactionHistory/${currentTransaction.type}`, currentTransaction);
   }
 }
