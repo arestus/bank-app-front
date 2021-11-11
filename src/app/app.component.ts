@@ -46,8 +46,10 @@ export class AppComponent {
   ChangeAccountType() {
     if (this.accountType === 'CURRENT') {
       this.ChangeAccount('SAVINGS') 
+      localStorage.setItem('teste', this.accountType)
     } else {
       this.ChangeAccount('CURRENT') 
+      localStorage.setItem('teste', this.accountType)
     }
   }
 

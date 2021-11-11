@@ -14,7 +14,7 @@ export class LoginService {
 
 
   LoginAPI(customer: LoginModel) {
-    console.log(customer);
+    // console.log(customer);
     
     return this.http.post(
       'https://induk-bank.azurewebsites.net/api/Customer/Login',
