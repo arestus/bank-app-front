@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
     if (role == "Customer") {
       
       this.loginService.LoginAPI(this.customer).subscribe((dataAfterLogin) => {
+        console.log(dataAfterLogin);
         
         let userAfterLogin: UserModel = dataAfterLogin as UserModel;
         this.loginService
