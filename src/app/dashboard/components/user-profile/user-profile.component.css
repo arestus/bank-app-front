@@ -1,21 +1,20 @@
-.container { 
+.container {
   padding-top: 10px;
-  width: 380px;
-  margin-left:480px;
-  margin-top: 50px;
+  width: 600px;
+  /* margin-left: 480px;
+  margin-top: 50px; */
   padding: 30px;
-  font-family: 'Open Sans', sans-serif;
+  margin: 20px;
+  font-family: "Open Sans", sans-serif;
   font-size: 19px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 10px;
 }
 th {
   color: blueviolet;
-  font-size: 20px;  
-  font-weight:bold;
+  font-size: 20px;
+  font-weight: bold;
 }
-tr
-{
+tr {
   line-height: 46px;
 }
-
